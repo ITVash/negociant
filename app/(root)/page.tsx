@@ -16,15 +16,13 @@ import { useTelegram } from "@/shared/lib/providers"
 export default function Home() {
 	const { user, webApp } = useTelegram()
 	return (
-		<div className='flex max-w-full min-h-[100vh]'>
+		<div className='flex flex-col max-w-full min-h-[100vh]'>
 			<div className='flex mt-4 max-w-sm'>
 				{user ? (
 					<>
 						<h1>Welcome {user?.username}</h1>
 						User data:
 						<pre>{JSON.stringify(user, null, 2)}</pre>
-						Eniter Web App data:
-						<pre>{JSON.stringify(webApp, null, 2)}</pre>
 					</>
 				) : (
 					<p>Приложение необходимо открывать, только в телеграмме </p>
