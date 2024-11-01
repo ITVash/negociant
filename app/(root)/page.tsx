@@ -14,13 +14,15 @@ import {
 import { useTelegram } from "@/shared/lib/providers"
 
 export default function Home() {
-	const { user, webApp } = useTelegram()
+	const { user } = useTelegram()
 	return (
 		<div className='flex flex-col max-w-full min-h-[100vh]'>
 			<div className='flex mt-4 max-w-sm'>
 				{user ? (
 					<>
-						<h1>Welcome {user?.username}</h1>
+						<h1>
+							Welcome {user!.first_name} {user!.last_name}
+						</h1>
 						User data:
 						<pre>{JSON.stringify(user, null, 2)}</pre>
 					</>
