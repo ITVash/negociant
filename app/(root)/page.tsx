@@ -16,7 +16,7 @@ import { useTelegram } from "@/shared/lib/providers"
 export default function Home() {
 	const { user, webApp } = useTelegram()
 	return (
-		<div className='flex flex-col max-w-sm min-h-svh'>
+		<div className='flex flex-row max-w-sm min-h-[100vh]'>
 			<div className='flex mt-4 max-w-sm'>
 				{user ? (
 					<>
