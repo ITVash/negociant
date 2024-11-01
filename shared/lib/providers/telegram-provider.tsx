@@ -35,7 +35,7 @@ export const TelegramProvider = ({
 
 	return (
 		<TelegramContext.Provider value={value}>
-			<meta name='color-scheme' content='darck' />
+			<meta name='color-scheme' content='dark' />
 			<meta name='format-detection' content='telephone=no' />
 			<meta httpEquiv='X-UA-Compatible' content='IE=edge' />
 			<meta name='MobileOptimized' content='176' />
