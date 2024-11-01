@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Nunito } from "next/font/google"
 import "./globals.css"
+import { TelegramProvider } from "@/shared/lib/providers"
 
 const nunito = Nunito({
 	subsets: ["cyrillic"],
@@ -24,7 +25,7 @@ export default function RootLayout({
 	return (
 		<html lang='ru'>
 			<body suppressHydrationWarning={true} className={nunito.className}>
-				{children}
+				<TelegramProvider>{children}</TelegramProvider>
 			</body>
 		</html>
 	)
