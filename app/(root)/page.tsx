@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "@/shared/components/ui/button"
 import { Checkbox } from "@/shared/components/ui/checkbox"
 import { Input } from "@/shared/components/ui/input"
@@ -10,7 +11,7 @@ import {
 	SelectContent,
 	SelectItem,
 } from "@/shared/components/ui/select"
-import { TelegramProvider, useTelegram } from "@/shared/lib/providers"
+import { TelegramProvider, useTelegram } from "@/app/providers"
 
 export default function Home() {
 	const { user, webApp } = useTelegram()

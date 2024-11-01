@@ -1,4 +1,5 @@
-import React, { createContext } from "react"
+"use client"
+import React from "react"
 import Script from "next/script"
 import { ITelegramUser, IWebApp } from "@/shared/@types"
 
@@ -7,7 +8,7 @@ export interface ITelegramContext {
 	user?: ITelegramUser
 }
 
-export const TelegramContext = createContext<ITelegramContext>({})
+export const TelegramContext = React.createContext<ITelegramContext>({})
 
 export const TelegramProvider = ({
 	children,
