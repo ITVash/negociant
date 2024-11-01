@@ -1,6 +1,6 @@
 import React, { createContext } from "react"
 import Script from "next/script"
-import { ITelegramUser, IWebApp } from "@/shared/@types/types"
+import { ITelegramUser, IWebApp } from "@/shared/@types"
 
 export interface ITelegramContext {
 	webApp?: IWebApp

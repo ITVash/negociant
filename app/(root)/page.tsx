@@ -10,10 +10,27 @@ import {
 	SelectContent,
 	SelectItem,
 } from "@/shared/components/ui/select"
+import { TelegramProvider, useTelegram } from "@/shared/lib/providers"
 
 export default function Home() {
+	const { user, webApp } = useTelegram()
 	return (
 		<div className='grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]'>
+			<TelegramProvider>
+				<div>
+					{user ? (
+						<>
+							<h1>Welcome {user?.username}</h1>
+							User data:
+							<pre>{JSON.stringify(user, null, 2)}</pre>
+							Eniter Web App data:
+							<pre>{JSON.stringify(webApp, null, 2)}</pre>
+						</>
+					) : (
+						<p>Приложение необходимо открывать, только в телеграмме </p>
+					)}
+				</div>
+			</TelegramProvider>
 			<Input />
 			<Button>Кнопка</Button>
 			<div className='flex'>
