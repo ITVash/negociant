@@ -35,12 +35,6 @@ export const TelegramProvider = ({
 
 	return (
 		<TelegramContext.Provider value={value}>
-			<meta name='color-scheme' content='dark' />
-			<meta name='format-detection' content='telephone=no' />
-			<meta httpEquiv='X-UA-Compatible' content='IE=edge' />
-			<meta name='MobileOptimized' content='176' />
-			<meta name='HandheldFriendly' content='True' />
-			<meta name='robots' content='noindex,nofollow' />
 			<Script
 				src='https://telegram.org/js/telegram-web-app.js'
 				strategy='beforeInteractive'
