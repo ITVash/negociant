@@ -17,7 +17,7 @@ const config: Config = {
 				"telegram-primary": "var(--telegram-button-color)",
 				"telegram-primary-text": "var(--telegram-button-text-color)",
 				"telegram-secondary-white": "var(--telegram-secondary-bg-color)",
-				"telegram-color-text": "var(--color-text)",
+				"--color-text": "rgb(255,255,255)",
 				background: "hsl(var(--background))",
 				foreground: "hsl(var(--foreground))",
 				card: {
