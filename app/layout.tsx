@@ -25,6 +25,16 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='ru'>
+			<head>
+				<meta>
+					<meta name='color-scheme' content='light' />
+					<meta name='format-detection' content='telephone=no' />
+					<meta httpEquiv='X-UA-Compatible' content='IE=edge' />
+					<meta name='MobileOptimized' content='176' />
+					<meta name='HandheldFriendly' content='True' />
+					<meta name='robots' content='noindex,nofollow' />
+				</meta>
+			</head>
 			<body suppressHydrationWarning={true} className={nunito.className}>
 				<TelegramProvider>{children}</TelegramProvider>
 			</body>
