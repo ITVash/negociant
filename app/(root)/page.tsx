@@ -26,29 +26,31 @@ export default function Home() {
 			<div className={cn("flex mt-4 max-w-sm", tgColorText)}>
 				{user ? (
 					<>
-						<h1>
+						<h1 className={tgColorText}>
 							Welcome {user!.first_name} {user!.last_name}
 						</h1>
 						User data:
-						<pre>{JSON.stringify(user, null, 2)}</pre>
+						<pre className={tgColorText}>{JSON.stringify(user, null, 2)}</pre>
 					</>
 				) : (
-					<p>Приложение необходимо открывать, только в телеграмме </p>
+					<p className={tgColorText}>
+						Приложение необходимо открывать, только в телеграмме{" "}
+					</p>
 				)}
 			</div>
-			<Input />
+			<Input className={tgColorText} />
 			<Button>Кнопка</Button>
 			<div className='flex'>
-				<Checkbox id='test' className='mr-2' />
-				<label htmlFor='test' className='cursor-pointer'>
+				<Checkbox id='test' className={cn("mr-2", tgColorText)} />
+				<label htmlFor='test' className={cn("cursor-pointer", tgColorText)}>
 					Это чек бокс
 				</label>
 			</div>
 			<Select>
-				<SelectTrigger className='w-[180px]'>
+				<SelectTrigger className={cn("w-[180px]", tgColorText)}>
 					<SelectValue placeholder='Выберите Клиента!' />
 				</SelectTrigger>
-				<SelectContent>
+				<SelectContent className={tgColorText}>
 					<SelectGroup>
 						<SelectLabel>Fruits</SelectLabel>
 						<SelectItem value='apple'>Apple</SelectItem>
