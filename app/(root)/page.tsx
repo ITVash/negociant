@@ -12,11 +12,15 @@ import {
 	SelectItem,
 } from "@/shared/components/ui/select"
 import { useTelegram } from "@/shared/lib/providers"
+import { cn } from "@/shared/lib/utils"
 
 export default function Home() {
-	const { user } = useTelegram()
+	const { user, webApp } = useTelegram()
 	return (
-		<div className='flex flex-col max-w-full min-h-[100vh] --color-text'>
+		<div
+			className={cn("flex flex-col max-w-full min-h-[100vh]", {
+				webApp: webApp?.themeParams.text_color,
+			})}>
 			<div className='flex mt-4 max-w-sm'>
 				{user ? (
 					<>
