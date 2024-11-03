@@ -1,5 +1,16 @@
 import type { Config } from "tailwindcss"
 
+/**
+ * "telegram-white": "var(--telegram-bg-color)",
+				"telegram-black": "var(--telegram-text-color)",
+				"telegram-hint": "var(--telegram-hint-color)",
+				"telegram-link": "var(--telegram-link-color)",
+				"telegram-primary": "var(--telegram-button-color)",
+				"telegram-primary-text": "var(--telegram-button-text-color)",
+				"telegram-secondary-white": "var(--telegram-secondary-bg-color)",
+				"--color-text": "rgb(255,255,255)", 
+ */
+
 const config: Config = {
 	darkMode: ["class"],
 	content: [
@@ -10,14 +21,6 @@ const config: Config = {
 	theme: {
 		extend: {
 			colors: {
-				"telegram-white": "var(--telegram-bg-color)",
-				"telegram-black": "var(--telegram-text-color)",
-				"telegram-hint": "var(--telegram-hint-color)",
-				"telegram-link": "var(--telegram-link-color)",
-				"telegram-primary": "var(--telegram-button-color)",
-				"telegram-primary-text": "var(--telegram-button-text-color)",
-				"telegram-secondary-white": "var(--telegram-secondary-bg-color)",
-				"--color-text": "rgb(255,255,255)",
 				background: "hsl(var(--background))",
 				foreground: "hsl(var(--foreground))",
 				card: {
