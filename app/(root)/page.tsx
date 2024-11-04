@@ -27,9 +27,14 @@ export default function Home() {
 				)}
 			</div>
 			<div>
-				<p>
-					Ваша цветовая схема: <pre>{JSON.stringify(colors)}</pre>
-				</p>
+				{webApp ? (
+					<>
+						<h1>Ваши настройки:</h1>
+						<pre>{JSON.stringify(webApp)}</pre>
+					</>
+				) : (
+					<p>Приложение необходимо открывать, только в телеграмме </p>
+				)}
 			</div>
 		</Container>
 	)
