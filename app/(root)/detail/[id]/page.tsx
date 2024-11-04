@@ -1,3 +1,4 @@
+import { Container } from "@/shared/components/shared"
 import { cn } from "@/shared/lib/utils"
 
 export default async function Detail({
@@ -5,5 +6,9 @@ export default async function Detail({
 }: {
 	params: { id: string }
 }) {
-	return <div className={cn("")}>Detail {id}</div>
+	return (
+		<Container className='text-[#FFFFFF]'>
+			<div className={cn("")}>Detail {id}</div>
+		</Container>
+	)
 }
