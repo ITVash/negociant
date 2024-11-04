@@ -20,7 +20,7 @@ export default function Home() {
 	return (
 		<div
 			className={cn(
-				"flex flex-col max-w-full min-h-[100vh] dark:text-primary",
+				"flex flex-col max-w-full min-h-[100vh] bg-white text-primary dark:text-primary",
 				tgColorText,
 			)}>
 			<div className={cn("flex mt-4 max-w-sm", tgColorText)}>
