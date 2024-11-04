@@ -6,6 +6,15 @@ export interface ITelegramUser {
 	language_code: string
 	photo_url: string
 }
+export interface IThemeParams {
+	link_color: string
+	button_color: string
+	button_text_color: string
+	secondary_bg_color: string
+	hint_color: string
+	bg_color: string
+	text_color: string
+}
 export interface IWebApp {
 	initData: string
 	initDataUnsafe: {

@@ -1,12 +1,20 @@
 "use client"
+import { IThemeParams } from "@/shared/@types"
 import { Container } from "@/shared/components/shared"
 import { useTelegram } from "@/shared/lib/providers"
 import { cn } from "@/shared/lib/utils"
+import React from "react"
 
 export default function Home() {
 	const { user, webApp } = useTelegram()
+	const [colors, setColors] = React.useState<IThemeParams>()
+	React.useEffect(() => {
+		if (webApp) {
+			setColors(webApp.themeParams)
+		}
+	}, [])
 	return (
-		<Container className=''>
+		<Container className={`text-[${colors?.text_color}]`}>
 			{user ? (
 				<>
 					<h1>
