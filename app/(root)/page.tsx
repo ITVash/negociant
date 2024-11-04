@@ -18,8 +18,11 @@ export default function Home() {
 			{user ? (
 				<>
 					<h1>
-						Welcome {user!.first_name} {user!.last_name}
+						Добро пожаловать: {user!.first_name} {user!.last_name}
 					</h1>
+					<p>
+						Ваша цветовая схема: <pre>{JSON.stringify(colors)}</pre>
+					</p>
 					User data:
 					<pre>{JSON.stringify(user, null, 2)}</pre>
 				</>
