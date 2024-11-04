@@ -13,8 +13,11 @@ export default function Home() {
 			setColors(webApp.themeParams)
 		}
 	}, [colors])
+	if (!webApp) {
+		return <p>Загрузка...</p>
+	}
 	return (
-		<Container className={`text-[${colors?.text_color}] flex-col`}>
+		<Container className={`text-[${webApp.themeParams.text_color}] flex-col`}>
 			<div>
 				{user ? (
 					<>
