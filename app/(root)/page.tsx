@@ -21,7 +21,7 @@ export default function Home() {
 			<div>
 				{user ? (
 					<>
-						<h1>
+						<h1 className={`text-[#ffffff]`}>
 							Добро пожаловать: {user!.first_name} {user!.last_name}
 						</h1>
 					</>
