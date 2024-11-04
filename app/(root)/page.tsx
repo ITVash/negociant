@@ -12,9 +12,9 @@ export default function Home() {
 		if (webApp) {
 			setColors(webApp.themeParams)
 		}
-	}, [])
+	}, [colors])
 	return (
-		<Container className={`text-[${colors?.text_color}] flex-row`}>
+		<Container className={`text-[${colors?.text_color}] flex-col`}>
 			<div>
 				{user ? (
 					<>
