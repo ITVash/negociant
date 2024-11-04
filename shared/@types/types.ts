@@ -14,6 +14,7 @@ export interface IThemeParams {
 	hint_color: string
 	bg_color: string
 	text_color: string
+	header_bg_color: string
 }
 export interface IWebApp {
 	initData: string
@@ -34,6 +35,7 @@ export interface IWebApp {
 		hint_color: string
 		bg_color: string
 		text_color: string
+		header_bg_color: string
 	}
 	isExpanded: boolean
 	viewportHeight: number

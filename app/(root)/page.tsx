@@ -18,27 +18,17 @@ export default function Home() {
 	}
 	return (
 		<Container className={`text-[${webApp.themeParams.text_color}] flex-col`}>
-			<div>
-				{user ? (
-					<>
-						<h1 className={`text-[#ffffff]`}>
-							Добро пожаловать: {user!.first_name} {user!.last_name}
-						</h1>
-					</>
-				) : (
-					<p>Приложение необходимо открывать, только в телеграмме </p>
+			<ul className={cn("flex h-8", webApp.themeParams.header_bg_color)}>
+				<li>Добро пожаловать:</li>
+				{user?.photo_url && (
+					<li>
+						<img src={user?.photo_url} alt={user?.username} />
+					</li>
 				)}
-			</div>
-			<div>
-				{webApp ? (
-					<>
-						<h1>Ваши настройки:</h1>
-						<pre>{JSON.stringify(webApp, null, 2)}</pre>
-					</>
-				) : (
-					<p>Приложение необходимо открывать, только в телеграмме </p>
-				)}
-			</div>
+				<li>
+					{user?.first_name} {user?.last_name}
+				</li>
+			</ul>
 		</Container>
 	)
 }

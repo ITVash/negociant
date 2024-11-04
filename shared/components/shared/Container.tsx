@@ -9,7 +9,5 @@ export const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
 	className,
 	children,
 }) => {
-	return (
-		<div className={cn("max-w-screen-xl flex px-5", className)}>{children}</div>
-	)
+	return <div className={cn("max-w-sm flex px-5", className)}>{children}</div>
 }
