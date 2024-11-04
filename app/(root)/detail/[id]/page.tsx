@@ -3,11 +3,7 @@ import { Container } from "@/shared/components/shared"
 import { useTelegram } from "@/shared/lib/providers"
 import { cn } from "@/shared/lib/utils"
 
-export default async function Detail({
-	params: { id },
-}: {
-	params: { id: string }
-}) {
+export default function Detail({ params: { id } }: { params: { id: string } }) {
 	const { webApp } = useTelegram()
 	if (!webApp) {
 		return <p>Загрузка...</p>
