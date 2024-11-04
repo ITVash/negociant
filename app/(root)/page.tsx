@@ -40,7 +40,7 @@ export default function Home() {
 				</li>
 			</ul>
 			<ul className='mt-3'>
-				<li className='h-6 py-1 flex justify-between items-center'>
+				<li className='h-6 py-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					1
 					<div className='flex items-center ml-3 w-[100%]'>
 						<Checkbox id='1' />
@@ -50,61 +50,61 @@ export default function Home() {
 					</div>
 					<ArrowBigRightDash className='cursor-pointer' />
 				</li>
-				<li className='h-6 py-1 flex justify-between items-center'>
+				<li className='h-6 py-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					2
 					<div className='flex items-center ml-3 w-[100%]'>
-						<Checkbox id='1' />
-						<label htmlFor='1' className='ml-3'>
+						<Checkbox id='2' />
+						<label htmlFor='2' className='ml-3'>
 							Рынки Донбасса
 						</label>
 					</div>
 					<ArrowBigRightDash className='cursor-pointer' />
 				</li>
-				<li className='h-6 py-1 flex justify-between items-center'>
+				<li className='h-6 py-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					3
 					<div className='flex items-center ml-3 w-[100%]'>
-						<Checkbox id='1' />
-						<label htmlFor='1' className='ml-3'>
+						<Checkbox id='3' />
+						<label htmlFor='3' className='ml-3'>
 							ОУ Правительство
 						</label>
 					</div>
 					<ArrowBigRightDash className='cursor-pointer' />
 				</li>
-				<li className='h-6 py-1 flex justify-between items-center'>
+				<li className='h-6 py-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					4
 					<div className='flex items-center ml-3 w-[100%]'>
-						<Checkbox id='1' />
-						<label htmlFor='1' className='ml-3'>
+						<Checkbox id='4' />
+						<label htmlFor='4' className='ml-3'>
 							Пионер
 						</label>
 					</div>
 					<ArrowBigRightDash className='cursor-pointer' />
 				</li>
-				<li className='h-6 py-1 flex justify-between items-center'>
+				<li className='h-6 py-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					5
 					<div className='flex items-center ml-3 w-[100%]'>
-						<Checkbox id='1' />
-						<label htmlFor='1' className='ml-3'>
+						<Checkbox id='5' />
+						<label htmlFor='5' className='ml-3'>
 							Сидония
 						</label>
 					</div>
 					<ArrowBigRightDash className='cursor-pointer' />
 				</li>
-				<li className='h-6 py-1 flex justify-between items-center'>
+				<li className='h-6 py-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					6
 					<div className='flex items-center ml-3 w-[100%]'>
-						<Checkbox id='1' />
-						<label htmlFor='1' className='ml-3'>
+						<Checkbox id='6' />
+						<label htmlFor='6' className='ml-3'>
 							Филипенко
 						</label>
 					</div>
 					<ArrowBigRightDash className='cursor-pointer' />
 				</li>
-				<li className='h-6 py-1 flex justify-between items-center'>
+				<li className='h-6 py-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					7
 					<div className='flex items-center ml-3 w-[100%]'>
-						<Checkbox id='1' />
-						<label htmlFor='1' className='ml-3'>
+						<Checkbox id='7' />
+						<label htmlFor='7' className='ml-3'>
 							Нагорнюк
 						</label>
 					</div>
