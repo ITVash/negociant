@@ -1,10 +1,15 @@
 "use client"
 import { IThemeParams } from "@/shared/@types"
 import { Container } from "@/shared/components/shared"
+import { Checkbox } from "@/shared/components/ui/checkbox"
 import { useTelegram } from "@/shared/lib/providers"
 import { cn } from "@/shared/lib/utils"
+import { ArrowBigRightDash } from "lucide-react"
 import React from "react"
 
+interface ITodo {
+	data: Date
+}
 export default function Home() {
 	const { user, webApp } = useTelegram()
 	const [colors, setColors] = React.useState<IThemeParams>()
@@ -21,7 +26,7 @@ export default function Home() {
 			className={`text-[#ffffff] text-[${webApp.themeParams.text_color}] flex-col`}>
 			<ul
 				className={cn(
-					"flex h-8 gap-1 bg-[#212121]",
+					"flex h-8 gap-1 bg-[#212121] border-b-sky-900 border-b border-solid",
 					`bg-[${webApp.themeParams.header_bg_color}]`,
 				)}>
 				<li>Добро пожаловать:</li>
@@ -32,6 +37,78 @@ export default function Home() {
 				)}
 				<li>
 					{user?.first_name} {user?.last_name}
+				</li>
+			</ul>
+			<ul className='mt-3'>
+				<li className='h-6 py-1 flex justify-between items-center'>
+					1
+					<div className='flex items-center ml-3 w-[100%]'>
+						<Checkbox id='1' />
+						<label htmlFor='1' className='ml-3'>
+							ГМСК
+						</label>
+					</div>
+					<ArrowBigRightDash className='cursor-pointer' />
+				</li>
+				<li className='h-6 py-1 flex justify-between items-center'>
+					2
+					<div className='flex items-center ml-3 w-[100%]'>
+						<Checkbox id='1' />
+						<label htmlFor='1' className='ml-3'>
+							Рынки Донбасса
+						</label>
+					</div>
+					<ArrowBigRightDash className='cursor-pointer' />
+				</li>
+				<li className='h-6 py-1 flex justify-between items-center'>
+					3
+					<div className='flex items-center ml-3 w-[100%]'>
+						<Checkbox id='1' />
+						<label htmlFor='1' className='ml-3'>
+							ОУ Правительство
+						</label>
+					</div>
+					<ArrowBigRightDash className='cursor-pointer' />
+				</li>
+				<li className='h-6 py-1 flex justify-between items-center'>
+					4
+					<div className='flex items-center ml-3 w-[100%]'>
+						<Checkbox id='1' />
+						<label htmlFor='1' className='ml-3'>
+							Пионер
+						</label>
+					</div>
+					<ArrowBigRightDash className='cursor-pointer' />
+				</li>
+				<li className='h-6 py-1 flex justify-between items-center'>
+					5
+					<div className='flex items-center ml-3 w-[100%]'>
+						<Checkbox id='1' />
+						<label htmlFor='1' className='ml-3'>
+							Сидония
+						</label>
+					</div>
+					<ArrowBigRightDash className='cursor-pointer' />
+				</li>
+				<li className='h-6 py-1 flex justify-between items-center'>
+					6
+					<div className='flex items-center ml-3 w-[100%]'>
+						<Checkbox id='1' />
+						<label htmlFor='1' className='ml-3'>
+							Филипенко
+						</label>
+					</div>
+					<ArrowBigRightDash className='cursor-pointer' />
+				</li>
+				<li className='h-6 py-1 flex justify-between items-center'>
+					7
+					<div className='flex items-center ml-3 w-[100%]'>
+						<Checkbox id='1' />
+						<label htmlFor='1' className='ml-3'>
+							Нагорнюк
+						</label>
+					</div>
+					<ArrowBigRightDash className='cursor-pointer' />
 				</li>
 			</ul>
 		</Container>
