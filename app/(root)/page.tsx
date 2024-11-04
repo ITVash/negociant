@@ -5,6 +5,7 @@ import { Checkbox } from "@/shared/components/ui/checkbox"
 import { useTelegram } from "@/shared/lib/providers"
 import { cn } from "@/shared/lib/utils"
 import { ArrowBigRightDash } from "lucide-react"
+import Link from "next/link"
 import React from "react"
 
 interface ITodo {
@@ -48,7 +49,9 @@ export default function Home() {
 							ГМСК
 						</label>
 					</div>
-					<ArrowBigRightDash className='cursor-pointer' />
+					<Link href='/detail/1'>
+						<ArrowBigRightDash className='cursor-pointer' />
+					</Link>
 				</li>
 				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					2
@@ -58,7 +61,9 @@ export default function Home() {
 							Рынки Донбасса
 						</label>
 					</div>
-					<ArrowBigRightDash className='cursor-pointer' />
+					<Link href='/detail/2'>
+						<ArrowBigRightDash className='cursor-pointer' />
+					</Link>
 				</li>
 				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					3
@@ -68,7 +73,9 @@ export default function Home() {
 							ОУ Правительство
 						</label>
 					</div>
-					<ArrowBigRightDash className='cursor-pointer' />
+					<Link href='/detail/3'>
+						<ArrowBigRightDash className='cursor-pointer' />
+					</Link>
 				</li>
 				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					4
@@ -78,7 +85,9 @@ export default function Home() {
 							Пионер
 						</label>
 					</div>
-					<ArrowBigRightDash className='cursor-pointer' />
+					<Link href='/detail/4'>
+						<ArrowBigRightDash className='cursor-pointer' />
+					</Link>
 				</li>
 				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					5
@@ -88,7 +97,9 @@ export default function Home() {
 							Сидония
 						</label>
 					</div>
-					<ArrowBigRightDash className='cursor-pointer' />
+					<Link href='/detail/5'>
+						<ArrowBigRightDash className='cursor-pointer' />
+					</Link>
 				</li>
 				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					6
@@ -98,7 +109,9 @@ export default function Home() {
 							Филипенко
 						</label>
 					</div>
-					<ArrowBigRightDash className='cursor-pointer' />
+					<Link href='/detail/6'>
+						<ArrowBigRightDash className='cursor-pointer' />
+					</Link>
 				</li>
 				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					7
@@ -108,7 +121,9 @@ export default function Home() {
 							Нагорнюк
 						</label>
 					</div>
-					<ArrowBigRightDash className='cursor-pointer' />
+					<Link href='/detail/7'>
+						<ArrowBigRightDash className='cursor-pointer' />
+					</Link>
 				</li>
 			</ul>
 		</Container>
