@@ -17,10 +17,11 @@ export default function Home() {
 		return <p>Загрузка...</p>
 	}
 	return (
-		<Container className={`text-[${webApp.themeParams.text_color}] flex-col`}>
+		<Container
+			className={`text-[#ffffff] text-[${webApp.themeParams.text_color}] flex-col`}>
 			<ul
 				className={cn(
-					"flex h-8 gap-1",
+					"flex h-8 gap-1 bg-[#212121]",
 					`bg-[${webApp.themeParams.header_bg_color}]`,
 				)}>
 				<li>Добро пожаловать:</li>
