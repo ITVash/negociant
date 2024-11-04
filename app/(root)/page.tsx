@@ -18,7 +18,11 @@ export default function Home() {
 	const { user, webApp } = useTelegram()
 	const tgColorText = webApp ? `text-[${webApp?.themeParams.text_color}]` : ""
 	return (
-		<div className={cn("flex flex-col max-w-full min-h-[100vh]", tgColorText)}>
+		<div
+			className={cn(
+				"flex flex-col max-w-full min-h-[100vh] dark:text-primary",
+				tgColorText,
+			)}>
 			<div className={cn("flex mt-4 max-w-sm", tgColorText)}>
 				{user ? (
 					<>
