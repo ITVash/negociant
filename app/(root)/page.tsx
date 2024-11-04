@@ -30,7 +30,7 @@ export default function Home() {
 				{webApp ? (
 					<>
 						<h1>Ваши настройки:</h1>
-						<pre>{JSON.stringify(webApp)}</pre>
+						<pre>{JSON.stringify(webApp, null, 2)}</pre>
 					</>
 				) : (
 					<p>Приложение необходимо открывать, только в телеграмме </p>
