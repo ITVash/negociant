@@ -40,7 +40,7 @@ export default function Home() {
 				</li>
 			</ul>
 			<ul className='mt-3'>
-				<li className='h-6 py-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
+				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					1
 					<div className='flex items-center ml-3 w-[100%]'>
 						<Checkbox id='1' />
@@ -50,7 +50,7 @@ export default function Home() {
 					</div>
 					<ArrowBigRightDash className='cursor-pointer' />
 				</li>
-				<li className='h-6 py-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
+				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					2
 					<div className='flex items-center ml-3 w-[100%]'>
 						<Checkbox id='2' />
@@ -60,7 +60,7 @@ export default function Home() {
 					</div>
 					<ArrowBigRightDash className='cursor-pointer' />
 				</li>
-				<li className='h-6 py-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
+				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					3
 					<div className='flex items-center ml-3 w-[100%]'>
 						<Checkbox id='3' />
@@ -70,7 +70,7 @@ export default function Home() {
 					</div>
 					<ArrowBigRightDash className='cursor-pointer' />
 				</li>
-				<li className='h-6 py-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
+				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					4
 					<div className='flex items-center ml-3 w-[100%]'>
 						<Checkbox id='4' />
@@ -80,7 +80,7 @@ export default function Home() {
 					</div>
 					<ArrowBigRightDash className='cursor-pointer' />
 				</li>
-				<li className='h-6 py-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
+				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					5
 					<div className='flex items-center ml-3 w-[100%]'>
 						<Checkbox id='5' />
@@ -90,7 +90,7 @@ export default function Home() {
 					</div>
 					<ArrowBigRightDash className='cursor-pointer' />
 				</li>
-				<li className='h-6 py-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
+				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					6
 					<div className='flex items-center ml-3 w-[100%]'>
 						<Checkbox id='6' />
@@ -100,7 +100,7 @@ export default function Home() {
 					</div>
 					<ArrowBigRightDash className='cursor-pointer' />
 				</li>
-				<li className='h-6 py-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
+				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
 					7
 					<div className='flex items-center ml-3 w-[100%]'>
 						<Checkbox id='7' />
