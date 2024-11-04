@@ -13,7 +13,7 @@ export default async function Detail({
 		return <p>Загрузка...</p>
 	}
 	return (
-		<Container className={`text-[${webApp.themeParams.text_color}]`}>
+		<Container className={cn(`text-[${webApp.themeParams.text_color}]`)}>
 			<div className={cn("")}>Detail {id}</div>
 		</Container>
 	)
