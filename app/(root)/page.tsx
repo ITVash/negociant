@@ -18,7 +18,11 @@ export default function Home() {
 	}
 	return (
 		<Container className={`text-[${webApp.themeParams.text_color}] flex-col`}>
-			<ul className={cn("flex h-8", webApp.themeParams.header_bg_color)}>
+			<ul
+				className={cn(
+					"flex h-8 gap-1",
+					`bg-[${webApp.themeParams.header_bg_color}]`,
+				)}>
 				<li>Добро пожаловать:</li>
 				{user?.photo_url && (
 					<li>
