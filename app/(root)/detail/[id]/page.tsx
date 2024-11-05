@@ -9,10 +9,14 @@ import React from "react"
 export default function Detail({ params: { id } }: { params: { id: string } }) {
 	const { webApp } = useTelegram()
 	const router = useRouter()
+	const closeButton = () => {
+		webApp!.BackButton.isVisible = false
+	}
 	React.useEffect(() => {
 		if (webApp) {
 			webApp.BackButton.isVisible = true
 			webApp.onEvent("backButtonClicked", router.back)
+			webApp.offEvent("backButtonClicked", closeButton)
 		}
 	}, [])
 	if (!webApp) {
