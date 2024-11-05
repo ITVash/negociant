@@ -11,17 +11,16 @@ export default function Detail({ params: { id } }: { params: { id: string } }) {
 	const router = useRouter()
 
 	const closeButton = () => {
-		router.back
 		webApp!.BackButton.isVisible = false
 	}
 	React.useEffect(() => {
 		if (webApp) {
 			webApp.BackButton.isVisible = true
 
-			webApp.onEvent("backButtonClicked", closeButton)
+			webApp.onEvent("backButtonClicked", router.back)
 			webApp.offEvent("backButtonClicked", closeButton)
 		}
-	}, [closeButton])
+	}, [])
 	if (!webApp) {
 		return <p>Загрузка...</p>
 	}
