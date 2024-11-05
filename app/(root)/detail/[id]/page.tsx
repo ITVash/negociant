@@ -3,9 +3,15 @@ import { Container } from "@/shared/components/shared"
 import { Button } from "@/shared/components/ui/button"
 import { useTelegram } from "@/shared/lib/providers"
 import { cn } from "@/shared/lib/utils"
+import React from "react"
 
 export default function Detail({ params: { id } }: { params: { id: string } }) {
 	const { webApp } = useTelegram()
+	React.useEffect(() => {
+		if (webApp) {
+			webApp.BackButton.isVisible = true
+		}
+	}, [])
 	if (!webApp) {
 		return <p>Загрузка...</p>
 	}
