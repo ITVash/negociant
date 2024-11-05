@@ -13,12 +13,11 @@ interface ITodo {
 }
 export default function Home() {
 	const { user, webApp } = useTelegram()
-	const [colors, setColors] = React.useState<IThemeParams>()
 	React.useEffect(() => {
 		if (webApp) {
-			setColors(webApp.themeParams)
+			webApp!.BackButton.isVisible = false
 		}
-	}, [colors])
+	}, [])
 	if (!webApp) {
 		return <p>Загрузка...</p>
 	}
