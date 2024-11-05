@@ -18,7 +18,9 @@ export default function Detail({ params: { id } }: { params: { id: string } }) {
 			webApp.BackButton.isVisible = true
 
 			webApp.onEvent("backButtonClicked", router.back)
-			webApp.offEvent("backButtonClicked", closeButton)
+			webApp.offEvent("backButtonClicked", () => {
+				webApp.BackButton.isVisible = false
+			})
 		}
 	}, [])
 	if (!webApp) {
