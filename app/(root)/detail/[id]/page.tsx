@@ -11,7 +11,7 @@ export default function Detail({ params: { id } }: { params: { id: string } }) {
 	}
 	return (
 		<Container className={cn(`text-[${webApp.themeParams.text_color}]`)}>
-			<div className={cn("mt-4")}>
+			<div className={cn("mt-4 flex flex-col")}>
 				<ul>
 					<li>
 						<b>Клиент:</b> {id} ГМСК
@@ -33,7 +33,7 @@ export default function Detail({ params: { id } }: { params: { id: string } }) {
 						<b>Телефон:</b> <a href='tel:+79493156867'>+79493156867</a>
 					</li>
 				</ul>
-				<Button className='m-auto'>Показать на карте</Button>
+				<Button className='m-auto mt-5'>Показать на карте</Button>
 			</div>
 		</Container>
 	)
