@@ -10,16 +10,18 @@ export default function Detail({ params: { id } }: { params: { id: string } }) {
 	const { webApp } = useTelegram()
 	const router = useRouter()
 
+	const closeButton = () => {
+		router.back()
+		webApp!.BackButton.isVisible = false
+	}
 	React.useEffect(() => {
 		if (webApp) {
 			webApp.BackButton.isVisible = true
-			const closeButton = () => {
-				webApp.BackButton.isVisible = false
-			}
-			webApp.onEvent("backButtonClicked", router.back)
+
+			webApp.onEvent("backButtonClicked", closeButton)
 			webApp.offEvent("backButtonClicked", closeButton)
 		}
-	}, [])
+	}, [closeButton])
 	if (!webApp) {
 		return <p>Загрузка...</p>
 	}
