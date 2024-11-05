@@ -11,7 +11,7 @@ export default function Detail({ params: { id } }: { params: { id: string } }) {
 	const router = useRouter()
 
 	const closeButton = () => {
-		router.back()
+		router.back
 		webApp!.BackButton.isVisible = false
 	}
 	React.useEffect(() => {
