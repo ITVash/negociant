@@ -46,6 +46,8 @@ export interface IWebApp {
 	BackButton: {
 		isVisible: boolean
 	}
+	onEvent: (eventTypes: string, eventHandler: () => void) => void
+	offEvent: (eventTypes: string, eventHandler: () => void) => void
 	MainButton: {
 		text: string
 		color: string

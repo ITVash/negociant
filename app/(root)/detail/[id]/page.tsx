@@ -3,13 +3,16 @@ import { Container } from "@/shared/components/shared"
 import { Button } from "@/shared/components/ui/button"
 import { useTelegram } from "@/shared/lib/providers"
 import { cn } from "@/shared/lib/utils"
+import { useRouter } from "next/navigation"
 import React from "react"
 
 export default function Detail({ params: { id } }: { params: { id: string } }) {
 	const { webApp } = useTelegram()
+	const router = useRouter()
 	React.useEffect(() => {
 		if (webApp) {
 			webApp.BackButton.isVisible = true
+			webApp.onEvent("backButtonClicked", router.back)
 		}
 	}, [])
 	if (!webApp) {
