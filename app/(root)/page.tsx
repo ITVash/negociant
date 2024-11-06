@@ -16,10 +16,10 @@ export default function Home() {
 	React.useEffect(() => {
 		const CreateUser = async () => {
 			if (user) {
-				const manyUser = await prisma.negoUser.findFirst({
+				/* const manyUser = await prisma.negoUser.findFirst({
 					where: { id_tg: Number(user.id) },
 				})
-				if (manyUser) return true
+				if (manyUser) return true */
 				const data = await prisma.negoUser.create({
 					data: {
 						id_tg: user.id,
