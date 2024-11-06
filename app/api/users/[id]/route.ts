@@ -1,9 +1,16 @@
 import { prisma } from "@/prisma/prisma-client"
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 
-export async function GET({ params }: { params: { tg_id: Number } }) {
+export async function GET(
+	req: NextRequest,
+	{ params }: { params: { tg_id: Number } },
+) {
 	const id = Number(params.tg_id)
-	const user = await prisma.negoUser.findFirst({ where: { id_tg: id } })
-	if (!user) return false
+	const data = Number(req.ip)
+	const user = await prisma.negoUser.findFirst({ where: { id_tg: data } })
+	if (!user)
+		return NextResponse.json({
+			message: "Пользователь не был найден в базе данных!",
+		})
 	return NextResponse.json(user)
 }
