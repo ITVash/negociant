@@ -1,4 +1,5 @@
 "use client"
+import { prisma } from "@/prisma/prisma-client"
 import { IThemeParams } from "@/shared/@types"
 import { Container } from "@/shared/components/shared"
 import { Checkbox } from "@/shared/components/ui/checkbox"
@@ -12,6 +13,28 @@ interface ITodo {
 	data: Date
 }
 export default function Home() {
+	React.useEffect(() => {
+		const CreateUser = async () => {
+			if (user) {
+				const manyUser = await prisma.negoUser.findFirst({
+					where: { id_tg: Number(user.id) },
+				})
+				if (manyUser) return true
+				const data = await prisma.negoUser.create({
+					data: {
+						id_tg: user.id,
+						last_name: user.last_name,
+						first_name: user.first_name,
+						photo_url: user.photo_url,
+						username: user.username,
+						role: "GUEST",
+					},
+				})
+				return data
+			}
+		}
+		CreateUser()
+	}, [])
 	const { user, webApp } = useTelegram()
 	React.useEffect(() => {
 		if (webApp) {
