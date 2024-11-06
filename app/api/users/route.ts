@@ -9,5 +9,5 @@ export async function GET() {
 export async function POST(req: NextRequest) {
 	const data = await req.json()
 	const user = await prisma.negoUser.create(data)
-	return user
+	return NextResponse.json(user)
 }
