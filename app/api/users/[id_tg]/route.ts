@@ -3,9 +3,9 @@ import { NextRequest, NextResponse } from "next/server"
 
 export async function GET(
 	req: NextRequest,
-	{ params }: { params: { tg_id: String } },
+	{ params }: { params: { id_tg: String } },
 ) {
-	const id = Number(params.tg_id)
+	const id = Number(params.id_tg)
 	const data = Number(req.ip)
 	const user = await prisma.negoUser.findFirst({ where: { id_tg: id } })
 	if (!user)

@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 	title: `ТД Негоциант`,
 	description: "Приложение для построение логистики",
 	icons: {
-		icon: "/favicon.svg",
-		shortcut: "/favicon.svg",
+		icon: "./favicon.svg",
+		shortcut: "./favicon.svg",
 	},
 }
 
