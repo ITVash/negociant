@@ -19,7 +19,7 @@ export default function Home() {
 			const manyUser = await prisma.negoUser.findFirst({
 				where: { id_tg: Number(user.id) },
 			})
-			if (manyUser) return true
+			if (manyUser) return false
 			const data = await prisma.negoUser.create({
 				data: {
 					id_tg: user.id,
