@@ -14,7 +14,7 @@ interface ITodo {
 }
 export default function Home() {
 	const { user, webApp } = useTelegram()
-	let statusPrisma: String = ""
+	let statusPrisma: String = "начало обработки"
 	const CreateUser = async () => {
 		if (user) {
 			const manyUser = await prisma.negoUser.findFirst({
@@ -150,6 +150,7 @@ export default function Home() {
 						<ArrowBigRightDash className='cursor-pointer' />
 					</Link>
 				</li>
+				<li>{statusPrisma}</li>
 			</ul>
 		</Container>
 	)
