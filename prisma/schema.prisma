@@ -4,10 +4,10 @@ generator client {
 
 datasource db {
     provider  = "postgresql"
-    //url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
-    //directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
-    url = "postgres://default:kxSPa4fM8dtg@ep-lingering-thunder-a23xphs1-pooler.eu-central-1.aws.neon.tech:5432/verceldb?sslmode=require&pgbouncer=true&connect_timeout=15"
-    directUrl = "postgres://default:kxSPa4fM8dtg@ep-lingering-thunder-a23xphs1.eu-central-1.aws.neon.tech:5432/verceldb?sslmode=require"
+    url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+    directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+    //url = "postgres://default:kxSPa4fM8dtg@ep-lingering-thunder-a23xphs1-pooler.eu-central-1.aws.neon.tech:5432/verceldb?sslmode=require&pgbouncer=true&connect_timeout=15"
+    //directUrl = "postgres://default:kxSPa4fM8dtg@ep-lingering-thunder-a23xphs1.eu-central-1.aws.neon.tech:5432/verceldb?sslmode=require"
 }
 enum negoUserRole {
   ADMIN
