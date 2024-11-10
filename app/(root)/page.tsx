@@ -151,6 +151,7 @@ export default function Home() {
 					</Link>
 				</li>
 				<li>{statusPrisma}</li>
+				<li>{JSON.stringify(user)}</li>
 			</ul>
 		</Container>
 	)
