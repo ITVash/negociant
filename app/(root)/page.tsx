@@ -14,11 +14,13 @@ interface ITodo {
 }
 export default function Home() {
 	const { user, webApp } = useTelegram()
+	let statusPrisma: String = ""
 	const CreateUser = async () => {
 		if (user) {
 			const manyUser = await prisma.negoUser.findFirst({
 				where: { id_tg: Number(user.id) },
 			})
+			statusPrisma = String(manyUser)
 			if (manyUser) return false
 			const data = await prisma.negoUser.create({
 				data: {
@@ -29,6 +31,7 @@ export default function Home() {
 					username: user.username,
 				},
 			})
+			statusPrisma = String(data)
 			return data
 		}
 	}
