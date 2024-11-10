@@ -37,7 +37,7 @@ export default function Home() {
 	}
 	React.useEffect(() => {
 		CreateUser()
-	}, [user])
+	}, [user, CreateUser])
 
 	React.useEffect(() => {
 		if (webApp) {
