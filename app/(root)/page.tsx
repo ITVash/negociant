@@ -13,6 +13,7 @@ interface ITodo {
 	data: Date
 }
 export default function Home() {
+	const { user, webApp } = useTelegram()
 	React.useEffect(() => {
 		const CreateUser = async () => {
 			if (user) {
@@ -27,15 +28,14 @@ export default function Home() {
 						first_name: user.first_name,
 						photo_url: user.photo_url,
 						username: user.username,
-						role: "GUEST",
 					},
 				})
 				return data
 			}
 		}
 		CreateUser()
-	}, [])
-	const { user, webApp } = useTelegram()
+	}, [user])
+
 	React.useEffect(() => {
 		if (webApp) {
 			webApp!.BackButton.isVisible = false

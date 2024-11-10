@@ -1,3 +1,8 @@
+enum negoUserRole {
+	ADMIN,
+	USER,
+	GUEST,
+}
 export interface ITelegramUser {
 	id: number
 	first_name: string
@@ -5,6 +10,7 @@ export interface ITelegramUser {
 	username: string
 	language_code: string
 	photo_url: string
+	role?: negoUserRole
 }
 export interface IThemeParams {
 	link_color: string
