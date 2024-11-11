@@ -1,9 +1,11 @@
 "use client"
 import { prisma } from "@/prisma/prisma-client"
 import { Container } from "@/shared/components/shared"
+import { Button } from "@/shared/components/ui/button"
 import { Checkbox } from "@/shared/components/ui/checkbox"
 import { useTelegram } from "@/shared/lib/providers"
 import { cn } from "@/shared/lib/utils"
+import { negoUser } from "@prisma/client"
 import { ArrowBigRightDash } from "lucide-react"
 import Link from "next/link"
 import React from "react"
@@ -13,11 +15,13 @@ interface ITodo {
 }
 export default function Home() {
 	const { user, webApp } = useTelegram()
+	const [auth, setAuth] = React.useState<negoUser>()
 	const CreateUser = async () => {
 		if (user) {
 			const manyUser = await prisma.negoUser.findFirst({
 				where: { id_tg: Number(user.id) },
 			})
+
 			if (!manyUser) {
 				const data = await prisma.negoUser.create({
 					data: {
@@ -30,6 +34,8 @@ export default function Home() {
 					},
 				})
 				return data
+			} else {
+				setAuth(manyUser)
 			}
 		}
 	}
@@ -50,15 +56,24 @@ export default function Home() {
 					"flex h-8 gap-1 bg-[#212121] border-b-sky-900 border-b border-solid",
 					`bg-[${webApp.themeParams.header_bg_color}]`,
 				)}>
-				<li>Добро пожаловать:</li>
-				{user?.photo_url && (
+				{auth ? (
+					<>
+						<li>Добро пожаловать:</li>
+						<li>
+							{auth.first_name} {auth.last_name}
+						</li>
+					</>
+				) : (
 					<li>
-						<img src={user?.photo_url} alt={user?.username} />
+						<Button
+							onClick={CreateUser}
+							className={cn(
+								`bg-[${webApp.themeParams.button_color}] text-[${webApp.themeParams.button_text_color}]`,
+							)}>
+							Регистрация...
+						</Button>
 					</li>
 				)}
-				<li>
-					{user?.first_name} {user?.last_name}
-				</li>
 			</ul>
 			<ul className='mt-3'>
 				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
