@@ -1,3 +1,4 @@
+"use server"
 import { prisma } from "@/prisma/prisma-client"
 import { ITelegramUser } from "../@types"
 
