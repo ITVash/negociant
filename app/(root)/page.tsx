@@ -4,6 +4,7 @@ import { Container } from "@/shared/components/shared"
 import { Button } from "@/shared/components/ui/button"
 import { Checkbox } from "@/shared/components/ui/checkbox"
 import { useTelegram } from "@/shared/lib/providers"
+import { CreateUser } from "@/shared/lib/registerUser"
 import { cn } from "@/shared/lib/utils"
 import { negoUser } from "@prisma/client"
 import { ArrowBigRightDash } from "lucide-react"
@@ -16,33 +17,11 @@ interface ITodo {
 export default function Home() {
 	const { user, webApp } = useTelegram()
 	const [auth, setAuth] = React.useState<negoUser>()
-	const CreateUser = async () => {
-		if (user) {
-			const manyUser = await prisma.negoUser.findFirst({
-				where: { id_tg: Number(user.id) },
-			})
 
-			if (!manyUser) {
-				const data = await prisma.negoUser.create({
-					data: {
-						id_tg: user.id,
-						last_name: user.last_name,
-						first_name: user.first_name,
-						photo_url: user.photo_url!,
-						username: user.username,
-						role: "GUEST",
-					},
-				})
-				return data
-			} else {
-				setAuth(manyUser)
-			}
-		}
-	}
 	React.useEffect(() => {
 		if (webApp && user) {
 			webApp!.BackButton.isVisible = false
-			CreateUser()
+			CreateUser(setAuth)
 		}
 	}, [])
 	if (!webApp) {
@@ -67,7 +46,7 @@ export default function Home() {
 					<li>
 						<Button
 							variant={"link"}
-							onClick={CreateUser}
+							onClick={() => CreateUser(setAuth)}
 							className={cn(
 								`bg-[${webApp.themeParams.button_color}] text-[${webApp.themeParams.button_text_color}]`,
 							)}>
