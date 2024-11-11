@@ -1,8 +1,7 @@
 import { prisma } from "@/prisma/prisma-client"
-import { useTelegram } from "./providers"
+import { ITelegramUser } from "../@types"
 
-const { user, webApp } = useTelegram()
-export const CreateUser = async (setAuth: any) => {
+export const CreateUser = async (user: ITelegramUser, setAuth: any) => {
 	if (user) {
 		const manyUser = await prisma.negoUser.findFirst({
 			where: { id_tg: Number(user.id) },

@@ -21,7 +21,7 @@ export default function Home() {
 	React.useEffect(() => {
 		if (webApp && user) {
 			webApp!.BackButton.isVisible = false
-			CreateUser(setAuth)
+			CreateUser(user, setAuth)
 		}
 	}, [])
 	if (!webApp) {
@@ -46,7 +46,7 @@ export default function Home() {
 					<li>
 						<Button
 							variant={"link"}
-							onClick={() => CreateUser(setAuth)}
+							onClick={() => CreateUser(user!, setAuth)}
 							className={cn(
 								`bg-[${webApp.themeParams.button_color}] text-[${webApp.themeParams.button_text_color}]`,
 							)}>
