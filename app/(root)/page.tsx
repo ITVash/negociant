@@ -66,6 +66,7 @@ export default function Home() {
 				) : (
 					<li>
 						<Button
+							variant={"link"}
 							onClick={CreateUser}
 							className={cn(
 								`bg-[${webApp.themeParams.button_color}] text-[${webApp.themeParams.button_text_color}]`,
