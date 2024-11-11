@@ -13,28 +13,6 @@ interface ITodo {
 }
 export default function Home() {
 	const { user, webApp } = useTelegram()
-	const CreateUser = async () => {
-		if (user) {
-			const manyUser = await prisma.negoUser.findFirst({
-				where: { id_tg: Number(user.id) },
-			})
-			if (manyUser) return 0
-			const data = await prisma.negoUser.create({
-				data: {
-					id_tg: user.id,
-					last_name: user.last_name,
-					first_name: user.first_name,
-					photo_url: user.photo_url!,
-					username: user.username,
-					role: "GUEST",
-				},
-			})
-			return data
-		}
-	}
-	React.useEffect(() => {
-		CreateUser()
-	}, [])
 
 	React.useEffect(() => {
 		if (webApp) {
@@ -44,6 +22,29 @@ export default function Home() {
 	if (!webApp) {
 		return <p>Загрузка...</p>
 	}
+	React.useEffect(() => {
+		const CreateUser = async () => {
+			if (user) {
+				const manyUser = await prisma.negoUser.findFirst({
+					where: { id_tg: Number(user.id) },
+				})
+				if (!manyUser) {
+					const data = await prisma.negoUser.create({
+						data: {
+							id_tg: user.id,
+							last_name: user.last_name,
+							first_name: user.first_name,
+							photo_url: user.photo_url!,
+							username: user.username,
+							role: "GUEST",
+						},
+					})
+					return data
+				}
+			}
+		}
+		CreateUser()
+	}, [])
 	return (
 		<Container
 			className={`text-[#ffffff] text-[${webApp.themeParams.text_color}] flex-col`}>
