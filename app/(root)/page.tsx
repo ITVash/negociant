@@ -34,16 +34,14 @@ export default function Home() {
 		}
 	}
 	React.useEffect(() => {
-		if (webApp) {
+		if (webApp && user) {
 			webApp!.BackButton.isVisible = false
+			CreateUser()
 		}
 	}, [])
 	if (!webApp) {
 		return <p>Загрузка...</p>
 	}
-	React.useEffect(() => {
-		CreateUser()
-	}, [])
 	return (
 		<Container
 			className={`text-[#ffffff] text-[${webApp.themeParams.text_color}] flex-col`}>
