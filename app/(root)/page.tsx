@@ -1,6 +1,5 @@
 "use client"
 import { prisma } from "@/prisma/prisma-client"
-import { IThemeParams } from "@/shared/@types"
 import { Container } from "@/shared/components/shared"
 import { Checkbox } from "@/shared/components/ui/checkbox"
 import { useTelegram } from "@/shared/lib/providers"
@@ -14,24 +13,22 @@ interface ITodo {
 }
 export default function Home() {
 	const { user, webApp } = useTelegram()
-	let statusPrisma: String = "начало обработки"
 	const CreateUser = async () => {
 		if (user) {
 			const manyUser = await prisma.negoUser.findFirst({
 				where: { id_tg: Number(user.id) },
 			})
-			statusPrisma = String(manyUser)
 			if (manyUser) return false
 			const data = await prisma.negoUser.create({
 				data: {
 					id_tg: user.id,
 					last_name: user.last_name,
 					first_name: user.first_name,
-					photo_url: user.photo_url,
+					photo_url: user.photo_url!,
 					username: user.username,
+					role: "GUEST",
 				},
 			})
-			statusPrisma = String(data)
 			return data
 		}
 	}
@@ -150,8 +147,6 @@ export default function Home() {
 						<ArrowBigRightDash className='cursor-pointer' />
 					</Link>
 				</li>
-				<li>{statusPrisma}</li>
-				<li>{JSON.stringify(user)}</li>
 			</ul>
 		</Container>
 	)

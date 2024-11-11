@@ -3,14 +3,17 @@ enum negoUserRole {
 	USER,
 	GUEST,
 }
+export interface ITUser extends ITelegramUser {
+	id_tg: number
+	role: negoUserRole
+}
 export interface ITelegramUser {
 	id: number
 	first_name: string
 	last_name: string
 	username: string
-	language_code: string
-	photo_url: string
-	role?: negoUserRole
+	language_code?: string
+	photo_url?: string
 }
 export interface IThemeParams {
 	link_color: string

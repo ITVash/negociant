@@ -1,5 +1,6 @@
 import { prisma } from "@/prisma/prisma-client"
-import { ITelegramUser } from "@/shared/@types"
+import { ITUser } from "@/shared/@types"
+import { negoUser, negoUserRole } from "@prisma/client"
 import { NextRequest, NextResponse } from "next/server"
 
 export async function GET() {
@@ -8,15 +9,12 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
-	const data: ITelegramUser = await req.json()
-	const user = await prisma.negoUser.create({
-		data: {
-			id_tg: data.id,
-			first_name: data.first_name,
-			last_name: data.last_name,
-			photo_url: data.photo_url,
-			username: data.username,
-		},
-	})
-	return NextResponse.json(user)
+	const data: negoUser = await req.json()
+	console.log(data)
+	try {
+		const user = await prisma.negoUser.create({ data })
+		return NextResponse.json(user)
+	} catch (error) {
+		return NextResponse.json({ message: "Ошибка сервера", error })
+	}
 }
