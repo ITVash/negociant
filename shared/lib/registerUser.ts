@@ -2,7 +2,7 @@
 import { prisma } from "@/prisma/prisma-client"
 import { ITelegramUser } from "../@types"
 
-export const CreateUser = async (user: ITelegramUser, setAuth: any) => {
+export const CreateUser = async (user: ITelegramUser) => {
 	if (user) {
 		const manyUser = await prisma.negoUser.findFirst({
 			where: { id_tg: Number(user.id) },
@@ -20,8 +20,6 @@ export const CreateUser = async (user: ITelegramUser, setAuth: any) => {
 				},
 			})
 			return data
-		} else {
-			setAuth(manyUser)
 		}
 	}
 }

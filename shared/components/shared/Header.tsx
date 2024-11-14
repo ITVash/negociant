@@ -1,8 +1,11 @@
+"use client"
 import { cn } from "@/shared/lib/utils"
 import React from "react"
 import { Container } from "./Container"
 import { ITelegramUser } from "@/shared/@types"
 import { CreateUser } from "@/shared/lib/registerUser"
+import { useUser } from "@/shared/store"
+import { stat } from "fs"
 
 interface HeaderProps {
 	className?: string
@@ -10,7 +13,8 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ className, user }) => {
-	CreateUser(user, "")
+	CreateUser(user)
+	const { items } = useUser()
 	return (
 		<div
 			className={cn(
@@ -20,6 +24,7 @@ export const Header: React.FC<HeaderProps> = ({ className, user }) => {
 			<Container className={cn("flex justify-between")}>
 				<div>Добро пожаловать: </div>
 				<div>
+					{items[0].photo_url}
 					{user.first_name} {user.last_name}
 				</div>
 			</Container>

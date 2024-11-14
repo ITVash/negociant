@@ -1,11 +1,12 @@
+import { negoUser } from "@prisma/client"
 import { negoUserDTO } from "./dto/user.dto"
 import { axiosInstance } from "./instance"
 
 export const getMe = async ({ id }: { id: number }): Promise<negoUserDTO> => {
 	return (await axiosInstance.get<negoUserDTO>("/user/" + id)).data
 }
-export const getAll = async (): Promise<negoUserDTO> => {
-	return (await axiosInstance.get<negoUserDTO>("/user")).data
+export const getAll = async (): Promise<negoUser[]> => {
+	return (await axiosInstance.get<negoUser[]>("/user")).data
 }
 export const addUser = async (values: negoUserDTO): Promise<negoUserDTO> => {
 	return (await axiosInstance.post<negoUserDTO>("/user", values)).data
