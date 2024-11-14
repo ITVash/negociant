@@ -1,6 +1,6 @@
 "use client"
 import { prisma } from "@/prisma/prisma-client"
-import { Container, Header } from "@/shared/components/shared"
+import { Container, Header, WorkList } from "@/shared/components/shared"
 import { Button } from "@/shared/components/ui/button"
 import { Checkbox } from "@/shared/components/ui/checkbox"
 import { useTelegram } from "@/shared/lib/providers"
@@ -24,6 +24,27 @@ export default function Home() {
 			CreateUser(user, setAuth)
 		}
 	}, [])
+	const temple = [
+		{ idw: 1, organization: "ГМСК" },
+		{ idw: 2, organization: "Рынки Донбасса" },
+		{ idw: 3, organization: "АУ Правительство" },
+		{ idw: 4, organization: "Пионер" },
+		{ idw: 5, organization: "Сидония" },
+		{ idw: 6, organization: "Филипенко" },
+		{ idw: 7, organization: "Нагорнюк" },
+		{ idw: 8, organization: "Рынки Донбасса" },
+		{ idw: 9, organization: "ГМСК" },
+		{ idw: 10, organization: "АУ Правительство" },
+		{ idw: 11, organization: "Пионер" },
+		{ idw: 12, organization: "Сидония" },
+		{ idw: 13, organization: "Филипенко" },
+		{ idw: 14, organization: "ГМСНагорнюк" },
+		{ idw: 15, organization: "Рынки Донбасса" },
+		{ idw: 16, organization: "Пионер" },
+		{ idw: 17, organization: "Нагорнюк" },
+		{ idw: 18, organization: "Филипенко" },
+		{ idw: 19, organization: "Сидония" },
+	]
 	if (!webApp) {
 		return <p>Загрузка...</p>
 	}
@@ -31,6 +52,7 @@ export default function Home() {
 		<Container
 			className={`text-[#ffffff] text-[${webApp.themeParams.text_color}] flex-col max-h-screen`}>
 			<Header />
+			<WorkList items={temple} />
 			<ul
 				className={cn(
 					"flex h-8 gap-1 bg-[#212121] border-b-sky-900 border-b border-solid",
@@ -55,92 +77,6 @@ export default function Home() {
 						</Button>
 					</li>
 				)}
-			</ul>
-			<ul className='mt-3'>
-				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
-					1
-					<div className='flex items-center ml-3 w-[100%]'>
-						<Checkbox id='1' />
-						<label htmlFor='1' className='ml-3'>
-							ГМСК
-						</label>
-					</div>
-					<Link href='/detail/1'>
-						<ArrowBigRightDash className='cursor-pointer' />
-					</Link>
-				</li>
-				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
-					2
-					<div className='flex items-center ml-3 w-[100%]'>
-						<Checkbox id='2' />
-						<label htmlFor='2' className='ml-3'>
-							Рынки Донбасса
-						</label>
-					</div>
-					<Link href='/detail/2'>
-						<ArrowBigRightDash className='cursor-pointer' />
-					</Link>
-				</li>
-				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
-					3
-					<div className='flex items-center ml-3 w-[100%]'>
-						<Checkbox id='3' />
-						<label htmlFor='3' className='ml-3'>
-							ОУ Правительство
-						</label>
-					</div>
-					<Link href='/detail/3'>
-						<ArrowBigRightDash className='cursor-pointer' />
-					</Link>
-				</li>
-				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
-					4
-					<div className='flex items-center ml-3 w-[100%]'>
-						<Checkbox id='4' />
-						<label htmlFor='4' className='ml-3'>
-							Пионер
-						</label>
-					</div>
-					<Link href='/detail/4'>
-						<ArrowBigRightDash className='cursor-pointer' />
-					</Link>
-				</li>
-				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
-					5
-					<div className='flex items-center ml-3 w-[100%]'>
-						<Checkbox id='5' />
-						<label htmlFor='5' className='ml-3'>
-							Сидония
-						</label>
-					</div>
-					<Link href='/detail/5'>
-						<ArrowBigRightDash className='cursor-pointer' />
-					</Link>
-				</li>
-				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
-					6
-					<div className='flex items-center ml-3 w-[100%]'>
-						<Checkbox id='6' />
-						<label htmlFor='6' className='ml-3'>
-							Филипенко
-						</label>
-					</div>
-					<Link href='/detail/6'>
-						<ArrowBigRightDash className='cursor-pointer' />
-					</Link>
-				</li>
-				<li className='h-8 py-1 mb-1 flex justify-between items-center border-b-sky-900 border-b border-solid'>
-					7
-					<div className='flex items-center ml-3 w-[100%]'>
-						<Checkbox id='7' />
-						<label htmlFor='7' className='ml-3'>
-							Нагорнюк
-						</label>
-					</div>
-					<Link href='/detail/7'>
-						<ArrowBigRightDash className='cursor-pointer' />
-					</Link>
-				</li>
 			</ul>
 		</Container>
 	)
