@@ -1,6 +1,6 @@
 "use client"
 import { prisma } from "@/prisma/prisma-client"
-import { Container } from "@/shared/components/shared"
+import { Container, Header } from "@/shared/components/shared"
 import { Button } from "@/shared/components/ui/button"
 import { Checkbox } from "@/shared/components/ui/checkbox"
 import { useTelegram } from "@/shared/lib/providers"
@@ -29,7 +29,8 @@ export default function Home() {
 	}
 	return (
 		<Container
-			className={`text-[#ffffff] text-[${webApp.themeParams.text_color}] flex-col`}>
+			className={`text-[#ffffff] text-[${webApp.themeParams.text_color}] flex-col max-h-screen`}>
+			<Header />
 			<ul
 				className={cn(
 					"flex h-8 gap-1 bg-[#212121] border-b-sky-900 border-b border-solid",
