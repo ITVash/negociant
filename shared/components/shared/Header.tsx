@@ -2,6 +2,7 @@ import { cn } from "@/shared/lib/utils"
 import React from "react"
 import { Container } from "./Container"
 import { ITelegramUser } from "@/shared/@types"
+import { CreateUser } from "@/shared/lib/registerUser"
 
 interface HeaderProps {
 	className?: string
@@ -9,6 +10,7 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ className, user }) => {
+	CreateUser(user, "")
 	return (
 		<div
 			className={cn(
