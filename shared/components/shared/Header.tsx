@@ -10,7 +10,7 @@ export const Header: React.FC<HeaderProps> = ({ className }) => {
 	return (
 		<div
 			className={cn(
-				"h-8 -mx-5 border-b-sky-900 border-b border-solid",
+				"h-8 -mx-5 border-b-sky-900 border-b border-solid mt-2",
 				className,
 			)}>
 			<Container className={cn("flex justify-between")}>
