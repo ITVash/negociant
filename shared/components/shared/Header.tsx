@@ -30,7 +30,7 @@ export const Header: React.FC<HeaderProps> = ({ className, user }) => {
 								alt={user.username}
 								width={25}
 								height={25}
-								className='rounded-xl'
+								className='rounded-xl mr-2'
 							/>{" "}
 							{user.first_name} {user.last_name}
 						</div>
