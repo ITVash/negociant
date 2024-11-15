@@ -24,9 +24,11 @@ export const Header: React.FC<HeaderProps> = ({ className, user }) => {
 				<div>Добро пожаловать: </div>
 				<div>
 					{user && user.photo_url && (
-						<Image src={user.photo_url!} alt={user.username} />
-					)}{" "}
-					{user.first_name} {user.last_name}
+						<>
+							<Image src={user.photo_url!} alt={user.username} />{" "}
+							{user.first_name} {user.last_name}
+						</>
+					)}
 				</div>
 			</Container>
 		</div>
