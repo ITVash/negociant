@@ -11,7 +11,7 @@ export default function Home() {
 	const { user, webApp } = useTelegram()
 	const { items, fetchUsersAll } = useUser()
 	const dataUser = items.filter(
-		(item) => item.id_tg === user!.id || 454135208,
+		(item) => item.id_tg === user?.id || 454135208,
 	)[0]
 	React.useEffect(() => {
 		fetchUsersAll()
