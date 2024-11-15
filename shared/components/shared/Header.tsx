@@ -1,4 +1,3 @@
-"use client"
 import { cn } from "@/shared/lib/utils"
 import React from "react"
 import { Container } from "./Container"
@@ -13,10 +12,8 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ className, user }) => {
 	CreateUser(user)
-	const { items } = useUser()
-	const dataUser = items.filter((item) => item.id_tg === user.id)[0]
-	//fetchUsersAll()
-	//console.log(items)
+	//const { items } = useUser()
+	//const dataUser = items.filter((item) => item.id_tg === user.id)[0]
 	return (
 		<div
 			className={cn(
@@ -26,8 +23,8 @@ export const Header: React.FC<HeaderProps> = ({ className, user }) => {
 			<Container className={cn("flex justify-between")}>
 				<div>Добро пожаловать: </div>
 				<div>
-					<Image src={dataUser.photo_url!} alt={dataUser.username} />{" "}
-					{dataUser.first_name} {dataUser.last_name}
+					<Image src={user.photo_url!} alt={user.username} /> {user.first_name}{" "}
+					{user.last_name}
 				</div>
 			</Container>
 		</div>

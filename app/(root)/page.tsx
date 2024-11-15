@@ -9,7 +9,8 @@ interface ITodo {
 }
 export default function Home() {
 	const { user, webApp } = useTelegram()
-	const { fetchUsersAll } = useUser()
+	const { items, fetchUsersAll } = useUser()
+	const dataUser = items.filter((item) => item.id_tg === user!.id)[0]
 	React.useEffect(() => {
 		fetchUsersAll()
 	}, [])
@@ -45,7 +46,7 @@ export default function Home() {
 	return (
 		<Container
 			className={`text-[#ffffff] text-[${webApp.themeParams.text_color}] flex-col max-h-screen`}>
-			<Header user={user!} />
+			<Header user={dataUser!} />
 			<WorkList items={temple} />
 		</Container>
 	)
