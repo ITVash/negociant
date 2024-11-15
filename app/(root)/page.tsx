@@ -1,6 +1,7 @@
 "use client"
 import { Container, Header, WorkList } from "@/shared/components/shared"
 import { useTelegram } from "@/shared/lib/providers"
+import { useUser } from "@/shared/store"
 import React from "react"
 
 interface ITodo {
@@ -8,7 +9,10 @@ interface ITodo {
 }
 export default function Home() {
 	const { user, webApp } = useTelegram()
-
+	const { fetchUsersAll } = useUser()
+	React.useEffect(() => {
+		fetchUsersAll()
+	}, [])
 	React.useEffect(() => {
 		if (webApp && user) {
 			webApp!.BackButton.isVisible = false

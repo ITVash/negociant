@@ -4,8 +4,7 @@ import { Container } from "./Container"
 import { ITelegramUser } from "@/shared/@types"
 import { CreateUser } from "@/shared/lib/registerUser"
 import { useUser } from "@/shared/store"
-import { stat } from "fs"
-
+import Image from "next/image"
 interface HeaderProps {
 	className?: string
 	user: ITelegramUser
@@ -13,7 +12,10 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ className, user }) => {
 	CreateUser(user)
-	//const { items } = useUser()
+	const { items } = useUser()
+	const dataUser = items.filter((item) => item.id_tg === user.id)[0]
+	//fetchUsersAll()
+	//console.log(items)
 	return (
 		<div
 			className={cn(
@@ -23,7 +25,8 @@ export const Header: React.FC<HeaderProps> = ({ className, user }) => {
 			<Container className={cn("flex justify-between")}>
 				<div>Добро пожаловать: </div>
 				<div>
-					{user.first_name} {user.last_name}
+					<Image src={dataUser.photo_url!} alt={dataUser.username} />{" "}
+					{dataUser.first_name} {dataUser.last_name}
 				</div>
 			</Container>
 		</div>
