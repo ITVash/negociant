@@ -20,12 +20,18 @@ export const Header: React.FC<HeaderProps> = ({ className, user }) => {
 				"h-8 -mx-5 border-b-sky-900 border-b border-solid mt-2",
 				className,
 			)}>
-			<Container className={cn("flex justify-between")}>
+			<Container className={cn("flex justify-between items-center")}>
 				<div>Добро пожаловать: </div>
 				<div>
 					{user && user.photo_url && (
 						<>
-							<Image src={user.photo_url!} alt={user.username} />{" "}
+							<Image
+								src={user.photo_url!}
+								alt={user.username}
+								width={25}
+								height={25}
+								className='rounded'
+							/>{" "}
 							{user.first_name} {user.last_name}
 						</>
 					)}
