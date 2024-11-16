@@ -42,12 +42,12 @@ export default function Home() {
 		{ idw: 18, organization: "Филипенко" },
 		{ idw: 19, organization: "Сидония" },
 	]
-	if (!webApp) {
+	if (!dataUser && !webApp) {
 		return <p>Загрузка...</p>
 	}
 	return (
 		<Container
-			className={`text-[#ffffff] text-[${webApp.themeParams.text_color}] flex-col max-h-screen`}>
+			className={`text-[#ffffff] text-[${webApp?.themeParams.text_color}] flex-col max-h-screen`}>
 			<Header user={dataUser!} />
 			<WorkList items={temple} />
 		</Container>
