@@ -2,6 +2,7 @@ import { cn } from "@/shared/lib/utils"
 import { ArrowBigRightDash } from "lucide-react"
 import Link from "next/link"
 import React from "react"
+import { Checkbox } from "../ui/checkbox"
 
 interface WorkListItemsProps {
 	className?: string
@@ -21,6 +22,7 @@ export const WorkListItems: React.FC<WorkListItemsProps> = ({
 				className,
 			)}>
 			{idw}
+			<Checkbox id={String(idw)} />
 			<Link
 				href={`/detail/${String(idw)}`}
 				className='ml-3 flex flex-1 justify-between'>
