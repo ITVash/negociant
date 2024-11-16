@@ -32,7 +32,7 @@ export const Header: React.FC<HeaderProps> = ({ className, user }) => {
 								height={25}
 								className='rounded-xl mr-2'
 							/>{" "}
-							{user.first_name} {user.last_name}
+							{user.first_name}
 						</div>
 					)}
 				</div>
