@@ -22,7 +22,7 @@ export const WorkListItems: React.FC<WorkListItemsProps> = ({
 				className,
 			)}>
 			{idw}
-			<Checkbox id={String(idw)} className={cn("mr-3")} />
+			<Checkbox id={String(idw)} className={cn("ml-3")} />
 			<Link
 				href={`/detail/${String(idw)}`}
 				className='ml-3 mr-3 flex flex-1 justify-between'>
