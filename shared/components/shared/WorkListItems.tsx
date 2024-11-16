@@ -25,7 +25,7 @@ export const WorkListItems: React.FC<WorkListItemsProps> = ({
 			<Checkbox id={String(idw)} />
 			<Link
 				href={`/detail/${String(idw)}`}
-				className='ml-3 flex flex-1 justify-between'>
+				className='ml-3 mr-3 flex flex-1 justify-between'>
 				{organization}
 				<ArrowBigRightDash className='cursor-pointer' />
 			</Link>
