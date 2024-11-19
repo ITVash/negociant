@@ -29,3 +29,63 @@ model negoUser {
   updatedAt DateTime @updatedAt
 
 }
+
+model negoWork {
+  id Int @id @default(autoincrement())
+
+  workDate DateTime
+  workList negoWorkList[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum WorkListStatus {
+  START
+  PENDING
+  END
+}
+
+model negoWorkList {
+  id Int @id @default(autoincrement())
+
+  organization negoOrganization?
+
+  comment String
+  purpose_trip String[]
+
+  status WorkListStatus
+
+  work negoWork @relation(fields: [negoWorkId], references: [id])
+  negoWorkId Int
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model negoOrganization {
+  id Int @id @default(autoincrement())
+
+  name String
+  contakts negoContakts[]
+  address String
+
+  workList negoWorkList @relation(fields: [workListId], references: [id])
+  workListId Int @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model negoContakts {
+  id Int @id @default(autoincrement())
+
+  name String
+  phone String
+
+  organization negoOrganization @relation(fields: [organizationId], references: [id])
+  organizationId Int @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
