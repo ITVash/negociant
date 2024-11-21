@@ -11,9 +11,9 @@ export default function Home() {
 	const { user, webApp } = useTelegram()
 	const { items, fetchUsersAll } = useUser()
 	const dataUser = items.filter((item) => item.id_tg === user?.id)[0]
-	React.useEffect(() => {
+	/* React.useEffect(() => {
 		fetchUsersAll()
-	}, [])
+	}, []) */
 	React.useEffect(() => {
 		if (webApp && user) {
 			webApp!.BackButton.isVisible = false
