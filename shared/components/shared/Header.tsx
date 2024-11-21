@@ -1,9 +1,9 @@
+"use server"
 import { cn } from "@/shared/lib/utils"
 import React from "react"
 import { Container } from "./Container"
 import { ITelegramUser } from "@/shared/@types"
 import { CreateUser } from "@/shared/lib/registerUser"
-import { useUser } from "@/shared/store"
 import Image from "next/image"
 interface HeaderProps {
 	className?: string
