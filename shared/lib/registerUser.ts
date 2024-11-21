@@ -5,11 +5,14 @@ import { ITelegramUser } from "../@types"
 export const CreateUser = async (user: ITelegramUser) => {
 	try {
 		if (user) {
-			const manyUser = await prisma.negoUser.findFirst({
+			const manyUserTG = await prisma.negoUser.findFirst({
 				where: { id_tg: Number(user.id) },
 			})
+			const manyUserID = await prisma.negoUser.findFirst({
+				where: { id: Number(user.id) },
+			})
 
-			if (!manyUser) {
+			if (!manyUserTG && !manyUserID) {
 				const data = await prisma.negoUser.create({
 					data: {
 						id_tg: user.id,
