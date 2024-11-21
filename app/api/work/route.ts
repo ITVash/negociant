@@ -9,12 +9,7 @@ import { NextRequest, NextResponse } from "next/server"
 export async function GET() {
 	const works = await prisma.negoWork.findMany({
 		include: {
-			workList: {
-				include: {
-					organization: true,
-					work: true,
-				},
-			},
+			workList: true,
 		},
 	})
 	return NextResponse.json(works, { status: 200 })

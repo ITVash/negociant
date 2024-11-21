@@ -1,5 +1,5 @@
 import { prisma } from "@/prisma/prisma-client"
-import { NextResponse } from "next/server"
+import { NextRequest, NextResponse } from "next/server"
 
 /**
  * Gets all organizations
@@ -20,7 +20,7 @@ export async function GET() {
  * @param {Request} req
  * @returns {Promise<NextResponse>} Response with created organization
  */
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
 	try {
 		const body = await req.json()
 

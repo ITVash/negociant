@@ -19,6 +19,9 @@ export async function GET(
 			where: {
 				id,
 			},
+			include: {
+				contakts: true,
+			},
 		})
 
 		if (!organization) {

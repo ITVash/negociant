@@ -49,8 +49,7 @@ enum WorkListStatus {
 model negoWorkList {
   id Int @id @default(autoincrement())
 
-  organization negoOrganization?
-
+  organization Int
   comment String
   purpose_trip String[]
 
@@ -70,9 +69,6 @@ model negoOrganization {
   contakts negoContakts[]
   address String
 
-  workList negoWorkList @relation(fields: [workListId], references: [id])
-  workListId Int @unique
-
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -83,8 +79,8 @@ model negoContakts {
   name String
   phone String
 
-  organization negoOrganization @relation(fields: [organizationId], references: [id])
-  organizationId Int @unique
+  organization negoOrganization? @relation(fields: [organizationId], references: [id])
+  organizationId Int?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
