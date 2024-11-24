@@ -5,16 +5,16 @@ import { Container } from "./Container"
 import { ITelegramUser } from "@/shared/@types"
 import { CreateUser } from "@/shared/lib/registerUser"
 import Image from "next/image"
-import { DrawerMenu } from "./drawer-menu"
+import { DrawerMenu } from "."
 import { Button } from "../ui/button"
-import { useUser } from "@/shared/store"
 interface HeaderProps {
 	className?: string
 	user: ITelegramUser
 }
 
 export const Header: React.FC<HeaderProps> = ({ className, user }) => {
-	CreateUser(user)
+	console.log(user)
+	//CreateUser(user)
 	//const { items } = useUser()
 	//const dataUser = items.filter((item) => item.id_tg === user.id)[0]
 	return (

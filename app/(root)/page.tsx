@@ -1,4 +1,5 @@
 "use client"
+import { ITelegramUser } from "@/shared/@types"
 import { Container, Header, WorkList } from "@/shared/components/shared"
 import { useTelegram } from "@/shared/lib/providers"
 import { useUser } from "@/shared/store"
@@ -10,12 +11,18 @@ interface ITodo {
 export default function Home() {
 	const { user, webApp } = useTelegram()
 	const { items, fetchUsersAll } = useUser()
-	const dataUser =
-		items.length > 0 ? items.filter((item) => item.id_tg === user?.id)[0] : user
-
 	React.useEffect(() => {
 		fetchUsersAll()
 	}, [])
+	const dataUser =
+		items.length > 0
+			? items.filter((item) => item.id_tg === user?.id)[0]
+			: ({
+					first_name: "Пользователь",
+					last_name: "",
+					username: "User",
+			  } as ITelegramUser)
+
 	React.useEffect(() => {
 		if (webApp && user) {
 			webApp!.BackButton.isVisible = false
