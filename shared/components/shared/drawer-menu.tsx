@@ -5,6 +5,7 @@ import {
 	Sheet,
 	SheetClose,
 	SheetContent,
+	SheetFooter,
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
@@ -12,17 +13,11 @@ import {
 import { Button } from "../ui/button"
 import { ArrowLeft } from "lucide-react"
 
-interface IDrawerMenuProps {
-	className?: string
-}
-
-export const DrawerMenu: React.FC<
-	React.PropsWithChildren<IDrawerMenuProps>
-> = ({ className, children }) => {
+export const DrawerMenu: React.FC<React.PropsWithChildren> = ({ children }) => {
 	return (
 		<Sheet>
 			<SheetTrigger asChild>{children}</SheetTrigger>
-			<SheetContent className={cn("flex flex-col justify-between", className)}>
+			<SheetContent className={cn("flex flex-col justify-between")}>
 				<SheetHeader>
 					<SheetTitle>Редактирование списков</SheetTitle>
 				</SheetHeader>
@@ -34,6 +29,7 @@ export const DrawerMenu: React.FC<
 					Вернуться назад
 				</Button>
 			</SheetClose>
+			<SheetFooter>Тут тоже будет что ни будь</SheetFooter>
 		</Sheet>
 	)
 }
