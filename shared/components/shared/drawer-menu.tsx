@@ -18,18 +18,20 @@ export const DrawerMenu: React.FC<React.PropsWithChildren> = ({ children }) => {
 		<Sheet>
 			<SheetTrigger asChild>{children}</SheetTrigger>
 			<SheetContent className={cn("flex flex-col justify-between")}>
-				<SheetHeader>
-					<SheetTitle>Редактирование списков</SheetTitle>
-				</SheetHeader>
-				тут у нас будут кнопки для редактирования
+				<div>
+					<SheetHeader>
+						<SheetTitle>Редактирование списков</SheetTitle>
+					</SheetHeader>
+					тут у нас будут кнопки для редактирования
+					<SheetClose>
+						<Button className='w-56 h-12 text-base' size='lg'>
+							<ArrowLeft className='w-5 mr-2' />
+							Вернуться назад
+						</Button>
+					</SheetClose>
+					<SheetFooter>Тут тоже будет что ни будь</SheetFooter>
+				</div>
 			</SheetContent>
-			<SheetClose>
-				<Button className='w-56 h-12 text-base' size='lg'>
-					<ArrowLeft className='w-5 mr-2' />
-					Вернуться назад
-				</Button>
-			</SheetClose>
-			<SheetFooter>Тут тоже будет что ни будь</SheetFooter>
 		</Sheet>
 	)
 }
