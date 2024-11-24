@@ -5,6 +5,7 @@ import { ITelegramUser } from "@/shared/@types"
 import { CreateUser } from "@/shared/lib/registerUser"
 import Image from "next/image"
 import { DrawerMenu } from "./drawer-menu"
+import { Button } from "../ui/button"
 interface HeaderProps {
 	className?: string
 	user: ITelegramUser
@@ -21,7 +22,9 @@ export const Header: React.FC<HeaderProps> = ({ className, user }) => {
 				className,
 			)}>
 			<Container className={cn("flex justify-between items-center")}>
-				<DrawerMenu>Добро пожаловать: </DrawerMenu>
+				<DrawerMenu>
+					<Button>Добро пожаловать:</Button>{" "}
+				</DrawerMenu>
 				<div>
 					{user && user.photo_url && (
 						<div className='flex justify-between items-center'>
