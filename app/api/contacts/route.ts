@@ -10,7 +10,11 @@ import { NextRequest, NextResponse } from "next/server"
  */
 export async function GET() {
 	try {
-		const contacts = await prisma.negoContakts.findMany()
+		const contacts = await prisma.negoContakts.findMany({
+			include: {
+				organization: true,
+			},
+		})
 		if (!contacts) {
 			return NextResponse.json(
 				{ error: "Контакты не были найдены" },

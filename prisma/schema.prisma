@@ -50,6 +50,7 @@ model negoWorkList {
   id Int @id @default(autoincrement())
 
   organization Int
+  contakts Int
   comment String
   purpose_trip String[]
 
