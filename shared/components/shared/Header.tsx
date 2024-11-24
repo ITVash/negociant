@@ -1,3 +1,4 @@
+"use  client"
 import { cn } from "@/shared/lib/utils"
 import React from "react"
 import { Container } from "./Container"
@@ -6,6 +7,7 @@ import { CreateUser } from "@/shared/lib/registerUser"
 import Image from "next/image"
 import { DrawerMenu } from "./drawer-menu"
 import { Button } from "../ui/button"
+import { useUser } from "@/shared/store"
 interface HeaderProps {
 	className?: string
 	user: ITelegramUser
@@ -13,8 +15,8 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ className, user }) => {
 	CreateUser(user)
-	//const { items } = useUser()
-	//const dataUser = items.filter((item) => item.id_tg === user.id)[0]
+	const { items } = useUser()
+	const dataUser = items.filter((item) => item.id_tg === user.id)[0]
 	return (
 		<div
 			className={cn(
