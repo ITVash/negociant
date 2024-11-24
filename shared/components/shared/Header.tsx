@@ -15,8 +15,8 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ className, user }) => {
 	CreateUser(user)
-	const { items } = useUser()
-	const dataUser = items.filter((item) => item.id_tg === user.id)[0]
+	//const { items } = useUser()
+	//const dataUser = items.filter((item) => item.id_tg === user.id)[0]
 	return (
 		<div
 			className={cn(
