@@ -26,6 +26,7 @@ export const DrawerMenu: React.FC<
 				<SheetHeader>
 					<SheetTitle>Редактирование списков</SheetTitle>
 				</SheetHeader>
+				тут у нас будут кнопки для редактирования
 			</SheetContent>
 			<SheetClose>
 				<Button className='w-56 h-12 text-base' size='lg'>
