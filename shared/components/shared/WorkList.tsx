@@ -19,7 +19,7 @@ export const WorkList: React.FC<WorkListProps> = ({ className, items }) => {
 				items.map((item, id) => (
 					<>
 						<WorkListItems
-							key={id}
+							key={id + item.idw}
 							idw={item.idw}
 							organization={item.organization}
 						/>
