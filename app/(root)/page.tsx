@@ -15,7 +15,7 @@ export default function Home() {
 		fetchUsersAll()
 	}, [])
 	const dataUser =
-		items.length > 0
+		user && items.length > 0
 			? items.filter((item) => item.id_tg === user?.id)[0]
 			: ({
 					first_name: "Пользователь",
