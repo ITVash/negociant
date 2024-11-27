@@ -24,9 +24,11 @@ export const Header: React.FC<HeaderProps> = ({ className, user }) => {
 				className,
 			)}>
 			<Container className={cn("flex justify-between items-center")}>
-				<DrawerMenu>
-					<Button variant='link'>Добро пожаловать:</Button>{" "}
-				</DrawerMenu>
+				<>
+					<DrawerMenu>
+						<Button variant='link'>Добро пожаловать:</Button>{" "}
+					</DrawerMenu>
+				</>
 				<div>
 					{user && user.photo_url && (
 						<div className='flex justify-between items-center'>
