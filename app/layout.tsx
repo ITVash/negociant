@@ -19,16 +19,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
 	children,
-	modal,
 }: Readonly<{
 	children: React.ReactNode
-	modal: React.ReactNode
 }>) {
 	return (
 		<html lang='ru' className='light'>
 			<body suppressHydrationWarning={true} className={nunito.className}>
 				<TelegramProvider>{children}</TelegramProvider>
-				{modal}
 			</body>
 		</html>
 	)
