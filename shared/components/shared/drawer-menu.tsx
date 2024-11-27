@@ -9,8 +9,8 @@ import {
 	SheetHeader,
 	SheetTitle,
 	SheetTrigger,
-} from "../ui/sheet"
-import { Button } from "../ui/button"
+} from "@/shared/components/ui/sheet"
+import { Button } from "@/shared/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 
 export const DrawerMenu: React.FC<React.PropsWithChildren> = ({ children }) => {

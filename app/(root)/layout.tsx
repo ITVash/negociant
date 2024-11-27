@@ -6,9 +6,9 @@ export default function RootLayout({
 	modal: React.ReactNode
 }>) {
 	return (
-		<>
+		<main>
 			{children}
 			{modal}
-		</>
+		</main>
 	)
 }
