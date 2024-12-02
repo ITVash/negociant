@@ -9,14 +9,25 @@ export interface UserState {
 
 	fetchUser: (id_tg: number) => Promise<void>
 	fetchUsersAll: () => Promise<void>
-	fetchEditUser: (id_tg: number) => Promise<void>
-	fetchDelitUser: (id_tg: number) => Promise<void>
+	fetchEditUser: (id: number, values: negoUser) => Promise<void>
+	fetchDelitUser: (id: number) => Promise<void>
 }
 export const useUser = create<UserState>((set, get) => ({
 	loading: true,
 	error: false,
 	items: [],
-	fetchUser: async (id_tg: number) => {},
+	fetchUser: async (id: number) => {
+		try {
+			set({ loading: true, error: false })
+			const data = await Api.user.getMe(id)
+			set({ items: [data] })
+		} catch (error) {
+			console.error(error)
+			set({ error: true })
+		} finally {
+			set({ loading: false })
+		}
+	},
 	fetchUsersAll: async () => {
 		try {
 			set({ loading: true, error: false })
@@ -29,6 +40,28 @@ export const useUser = create<UserState>((set, get) => ({
 			set({ loading: false })
 		}
 	},
-	fetchEditUser: async (id_tg: number) => {},
-	fetchDelitUser: async (id_tg: number) => {},
+	fetchEditUser: async (id: number, values: negoUser) => {
+		try {
+			set({ loading: true, error: false })
+			const data = await Api.user.editUser(id, values)
+			set({ items: [data] })
+		} catch (error) {
+			console.error(error)
+			set({ error: true })
+		} finally {
+			set({ loading: false })
+		}
+	},
+	fetchDelitUser: async (id: number) => {
+		try {
+			set({ loading: true, error: false })
+			const data = await Api.user.delitUser(id)
+			set({ items: [data] })
+		} catch (error) {
+			console.error(error)
+			set({ error: true })
+		} finally {
+			set({ loading: false })
+		}
+	},
 }))
