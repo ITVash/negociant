@@ -65,7 +65,7 @@ export default function Home() {
 		{ idw: 18, organization: "Филипенко" },
 		{ idw: 19, organization: "Сидония" },
 	]
-	if (!webApp) {
+	if (!webApp || !items) {
 		return <p>Загрузка...</p>
 	}
 	return (
