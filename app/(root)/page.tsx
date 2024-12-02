@@ -18,9 +18,10 @@ export default function Home() {
 		user && items.length > 0
 			? items.filter((item) => item.id_tg === user?.id)[0]
 			: ({
-					first_name: "Пользователь",
-					last_name: "",
-					username: "User",
+					first_name: user?.first_name,
+					last_name: user?.last_name,
+					username: user?.username,
+					photo_url: user?.photo_url,
 			  } as ITelegramUser)
 
 	React.useEffect(() => {
