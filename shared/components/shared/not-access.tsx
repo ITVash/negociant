@@ -9,10 +9,12 @@ export const NotAccess: React.FC<INotAccessProps> = ({ className }) => {
 	return (
 		<div
 			className={cn(
-				"flex items-center justify-center min-h-screen text-lg font-bold",
+				"flex items-center justify-center min-h-screen text-lg font-bold w-[100%] -mx-5",
 				className,
 			)}>
-			<p>У вас нет доступа к приложению. Обратитесь к администратору!</p>
+			<p className='text-center'>
+				У вас нет доступа к приложению. Обратитесь к администратору!
+			</p>
 		</div>
 	)
 }
