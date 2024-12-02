@@ -3,7 +3,6 @@ import { cn } from "@/shared/lib/utils"
 import React from "react"
 import { Container } from "./Container"
 import { ITelegramUser } from "@/shared/@types"
-import { CreateUser } from "@/shared/lib/registerUser"
 import Image from "next/image"
 import { DrawerMenu } from "."
 import { Button } from "@/shared/components/ui/button"
@@ -13,11 +12,6 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ className, user }) => {
-	React.useEffect(() => {
-		if (user) CreateUser(user)
-	}, [])
-	//const { items } = useUser()
-	//const dataUser = items.filter((item) => item.id_tg === user.id)[0]
 	return (
 		<div
 			className={cn(

@@ -2,6 +2,7 @@
 import { ITelegramUser } from "@/shared/@types"
 import { Container, Header, WorkList } from "@/shared/components/shared"
 import { useTelegram } from "@/shared/lib/providers"
+import { CreateUser } from "@/shared/lib/registerUser"
 import { useUser } from "@/shared/store"
 import React from "react"
 
@@ -14,16 +15,25 @@ export default function Home() {
 	React.useEffect(() => {
 		fetchUsersAll()
 	}, [])
+
+	React.useEffect(() => {
+		if (user) {
+			const userCreate = items.filter((item) => item.id_tg === user?.id)[0]
+			if (!userCreate) {
+				CreateUser(user)
+			}
+		}
+	}, [])
+
 	const dataUser =
 		user && items.length > 0
 			? items.filter((item) => item.id_tg === user?.id)[0]
-			: {
+			: ({
 					first_name: user?.first_name,
-					id_tg: user?.id,
 					last_name: user?.last_name,
 					username: user?.username,
 					photo_url: user?.photo_url,
-			  }
+			  } as ITelegramUser)
 
 	React.useEffect(() => {
 		if (webApp && user) {
