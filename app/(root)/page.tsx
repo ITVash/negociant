@@ -34,6 +34,10 @@ export default function Home() {
 		user && items.length > 0
 			? items.filter((item) => item.id_tg === user?.id)[0]
 			: (user as negoUser)
+	/* const dataUser =
+		items &&
+		items.length > 0 &&
+		items.filter((item) => item.id_tg === 454135208)[0] */
 
 	React.useEffect(() => {
 		if (webApp && user) {
@@ -68,7 +72,8 @@ export default function Home() {
 		<Container
 			className={`text-[#ffffff] text-[${webApp?.themeParams.text_color}] flex-col max-h-screen`}>
 			<Header user={dataUser!} />
-			{(dataUser && dataUser.role === "ADMIN") || dataUser.role === "USER" ? (
+			{(dataUser && dataUser.role === "ADMIN") ||
+			(dataUser && dataUser.role === "USER") ? (
 				<WorkList items={temple} />
 			) : (
 				<NotAccess />
