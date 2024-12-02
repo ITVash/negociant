@@ -6,7 +6,7 @@ import { ITelegramUser } from "@/shared/@types"
 import { CreateUser } from "@/shared/lib/registerUser"
 import Image from "next/image"
 import { DrawerMenu } from "."
-import { Button } from "../ui/button"
+import { Button } from "@/shared/components/ui/button"
 interface HeaderProps {
 	className?: string
 	user: ITelegramUser
