@@ -19,7 +19,7 @@ export const DrawerMenu: React.FC<Readonly<React.PropsWithChildren>> = ({
 		<>
 			<Sheet>
 				<SheetTrigger asChild>{children}</SheetTrigger>
-				<SheetContent className={cn("flex flex-col justify-between")}>
+				<SheetContent className={cn("flex flex-col justify-between bg-white")}>
 					<SheetHeader>
 						<SheetTitle>Редактирование списков</SheetTitle>
 					</SheetHeader>

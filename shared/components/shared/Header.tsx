@@ -13,8 +13,7 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ className, user }) => {
-	console.log(user)
-	//CreateUser(user)
+	CreateUser(user)
 	//const { items } = useUser()
 	//const dataUser = items.filter((item) => item.id_tg === user.id)[0]
 	return (
