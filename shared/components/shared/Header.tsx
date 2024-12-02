@@ -1,4 +1,4 @@
-"use  server"
+"use  client"
 import { cn } from "@/shared/lib/utils"
 import React from "react"
 import { Container } from "./Container"
@@ -13,7 +13,9 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = ({ className, user }) => {
-	CreateUser(user)
+	React.useEffect(() => {
+		if (user) CreateUser(user)
+	}, [])
 	//const { items } = useUser()
 	//const dataUser = items.filter((item) => item.id_tg === user.id)[0]
 	return (
