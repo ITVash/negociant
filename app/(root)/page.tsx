@@ -4,6 +4,7 @@ import { Container, Header, WorkList } from "@/shared/components/shared"
 import { useTelegram } from "@/shared/lib/providers"
 import { CreateUser } from "@/shared/lib/registerUser"
 import { useUser } from "@/shared/store"
+import { negoUser } from "@prisma/client"
 import React from "react"
 
 interface ITodo {
@@ -28,7 +29,7 @@ export default function Home() {
 	const dataUser =
 		user && items.length > 0
 			? items.filter((item) => item.id_tg === user?.id)[0]
-			: user
+			: (user as negoUser)
 
 	React.useEffect(() => {
 		if (webApp && user) {

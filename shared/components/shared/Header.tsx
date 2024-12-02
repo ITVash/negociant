@@ -6,9 +6,10 @@ import { ITelegramUser } from "@/shared/@types"
 import Image from "next/image"
 import { DrawerMenu } from "."
 import { Button } from "@/shared/components/ui/button"
+import { negoUser } from "@prisma/client"
 interface HeaderProps {
 	className?: string
-	user: ITelegramUser
+	user: negoUser
 }
 
 export const Header: React.FC<HeaderProps> = ({ className, user }) => {
@@ -20,9 +21,13 @@ export const Header: React.FC<HeaderProps> = ({ className, user }) => {
 			)}>
 			<Container className={cn("flex justify-between items-center")}>
 				<>
-					<DrawerMenu>
-						<Button variant={"link"}>Открыть</Button>
-					</DrawerMenu>
+					{user && user.role === "ADMIN" ? (
+						<DrawerMenu>
+							<Button variant={"link"}>Открыть</Button>
+						</DrawerMenu>
+					) : (
+						<>Добро пожаловать:</>
+					)}
 				</>
 				<div>
 					{user && user.photo_url && (
