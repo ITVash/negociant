@@ -17,12 +17,13 @@ export default function Home() {
 	const dataUser =
 		user && items.length > 0
 			? items.filter((item) => item.id_tg === user?.id)[0]
-			: ({
+			: {
 					first_name: user?.first_name,
+					id_tg: user?.id,
 					last_name: user?.last_name,
 					username: user?.username,
 					photo_url: user?.photo_url,
-			  } as ITelegramUser)
+			  }
 
 	React.useEffect(() => {
 		if (webApp && user) {
