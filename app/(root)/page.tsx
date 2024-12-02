@@ -1,11 +1,15 @@
 "use client"
-import { ITelegramUser } from "@/shared/@types"
-import { Container, Header, WorkList } from "@/shared/components/shared"
+import React from "react"
+import {
+	Container,
+	Header,
+	NotAccess,
+	WorkList,
+} from "@/shared/components/shared"
 import { useTelegram } from "@/shared/lib/providers"
 import { CreateUser } from "@/shared/lib/registerUser"
 import { useUser } from "@/shared/store"
 import { negoUser } from "@prisma/client"
-import React from "react"
 
 interface ITodo {
 	data: Date
@@ -64,7 +68,11 @@ export default function Home() {
 		<Container
 			className={`text-[#ffffff] text-[${webApp?.themeParams.text_color}] flex-col max-h-screen`}>
 			<Header user={dataUser!} />
-			<WorkList items={temple} />
+			{(dataUser && dataUser.role === "ADMIN") || dataUser.role === "USER" ? (
+				<WorkList items={temple} />
+			) : (
+				<NotAccess />
+			)}
 		</Container>
 	)
 }
