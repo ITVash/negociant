@@ -13,7 +13,7 @@ export const Loading: React.FC<LoadingProps> = ({ className }) => {
 				"flex flex-col w-[100%] h-screen items-center justify-center m-auto",
 				className,
 			)}>
-			<LoaderCircle className='spin-in-0 text-sky-800' />
+			<LoaderCircle className='spin spin-in-180 text-sky-800' />
 		</div>
 	)
 }
