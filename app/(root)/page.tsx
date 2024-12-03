@@ -71,10 +71,12 @@ export default function Home() {
 	return (
 		<Container
 			className={`text-[#ffffff] text-[${webApp?.themeParams.text_color}] flex-col max-h-screen`}>
-			<Header user={dataUser!} />
 			{(dataUser && dataUser.role === "ADMIN") ||
 			(dataUser && dataUser.role === "USER") ? (
-				<WorkList items={temple} />
+				<>
+					<Header user={dataUser!} />
+					<WorkList items={temple} />
+				</>
 			) : (
 				<NotAccess />
 			)}
