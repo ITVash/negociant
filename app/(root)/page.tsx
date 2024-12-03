@@ -3,6 +3,7 @@ import React from "react"
 import {
 	Container,
 	Header,
+	Loading,
 	NotAccess,
 	WorkList,
 } from "@/shared/components/shared"
@@ -66,7 +67,7 @@ export default function Home() {
 		{ idw: 19, organization: "Сидония" },
 	]
 	if (!webApp || !items || !dataUser.role) {
-		return <p>Загрузка...</p>
+		return <Loading />
 	}
 	return (
 		<Container
