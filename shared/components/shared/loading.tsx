@@ -15,9 +15,15 @@ export const Loading: React.FC<LoadingProps> = ({ className }) => {
 				"flex flex-col w-[100%] h-screen items-center justify-center m-auto",
 				className,
 			)}>
-			<Image src={Logo} width={100} height={100} alt='Logo' />
+			<Image
+				src={Logo}
+				width={150}
+				height={150}
+				alt='Logo'
+				className='bg-white rounded-s-sm'
+			/>
 			<LoaderCircle
-				className='animate-spin text-sky-800 w-4 h-4'
+				className='animate-spin text-sky-800 w-5 h-5'
 				width={25}
 				height={25}
 			/>
