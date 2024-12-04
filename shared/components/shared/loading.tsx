@@ -22,12 +22,7 @@ export const Loading: React.FC<LoadingProps> = ({ className }) => {
 				alt='Logo'
 				className='bg-white rounded-md mb-8 animate-bounce'
 			/>
-			<LoaderCircle
-				className='animate-spin text-sky-800 w-5 h-5'
-				size={25}
-				width={25}
-				height={25}
-			/>
+			<LoaderCircle className='animate-spin text-sky-800' size={48} />
 		</div>
 	)
 }
