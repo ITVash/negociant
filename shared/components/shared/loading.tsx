@@ -20,7 +20,7 @@ export const Loading: React.FC<LoadingProps> = ({ className }) => {
 				width={150}
 				height={150}
 				alt='Logo'
-				className='bg-white rounded-s-sm'
+				className='bg-white rounded-md mb-8'
 			/>
 			<LoaderCircle
 				className='animate-spin text-sky-800 w-5 h-5'
