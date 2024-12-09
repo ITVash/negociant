@@ -7,6 +7,7 @@ import Image from "next/image"
 import { DrawerMenu } from "."
 import { Button } from "@/shared/components/ui/button"
 import { negoUser } from "@prisma/client"
+import { Menu } from "lucide-react"
 interface HeaderProps {
 	className?: string
 	user: negoUser
@@ -23,7 +24,9 @@ export const Header: React.FC<HeaderProps> = ({ className, user }) => {
 				<>
 					{user && user.role === "ADMIN" ? (
 						<DrawerMenu>
-							<Button variant={"link"}>Открыть</Button>
+							<Button variant={"link"}>
+								<Menu size={48} />
+							</Button>
 						</DrawerMenu>
 					) : (
 						<></>
