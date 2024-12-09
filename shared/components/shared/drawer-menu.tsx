@@ -19,11 +19,17 @@ export const DrawerMenu: React.FC<Readonly<React.PropsWithChildren>> = ({
 		<>
 			<Sheet>
 				<SheetTrigger asChild>{children}</SheetTrigger>
-				<SheetContent className={cn("flex flex-col justify-between bg-white")}>
+				<SheetContent
+					className={cn("flex flex-col justify-between bg-white w-[100%]")}>
 					<SheetHeader>
 						<SheetTitle>Редактирование списков</SheetTitle>
 					</SheetHeader>
-					тут у нас будут кнопки для редактирования
+					<div className='flex flex-col w-[100%]'>
+						<Button>Создать Маршрут</Button>
+						<Button>Редактирование Пользователей</Button>
+						<Button>Редактирование Организаций</Button>
+						<Button>История Маршрутов</Button>
+					</div>
 					<SheetClose>
 						<Button className='w-56 h-12 text-base' size='lg'>
 							<ArrowLeft className='w-5 mr-2' />
