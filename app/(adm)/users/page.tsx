@@ -1,5 +1,5 @@
 "use client"
-import { Loading } from "@/shared/components/shared"
+import { Container, Loading } from "@/shared/components/shared"
 import { useTelegram } from "@/shared/lib/providers"
 import { cn } from "@/shared/lib/utils"
 import { useRouter } from "next/navigation"
@@ -26,8 +26,8 @@ export default function EditUsers() {
 		return <Loading />
 	}
 	return (
-		<div className={cn(`text-[${webApp?.themeParams.text_color}]`)}>
+		<Container className={cn(`text-[${webApp?.themeParams.text_color}]`)}>
 			EditUsers
-		</div>
+		</Container>
 	)
 }
