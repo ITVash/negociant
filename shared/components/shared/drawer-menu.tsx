@@ -25,9 +25,9 @@ export const DrawerMenu: React.FC<Readonly<React.PropsWithChildren>> = ({
 						<SheetTitle>Редактирование списков</SheetTitle>
 					</SheetHeader>
 					<div className='flex flex-col w-[100%]'>
-						<Button>Создать Маршрут</Button>
-						<Button>Редактирование Пользователей</Button>
-						<Button>Редактирование Организаций</Button>
+						<Button className='mb-3'>Создать Маршрут</Button>
+						<Button className='mb-3'>Редактирование Пользователей</Button>
+						<Button className='mb-3'>Редактирование Организаций</Button>
 						<Button>История Маршрутов</Button>
 					</div>
 					<SheetClose>
