@@ -5,8 +5,10 @@ interface EditOrganizationProps {
 	className?: string
 }
 
-export const EditOrganization: React.FC<EditOrganizationProps> = ({
+export default function EditOrganization({
 	className,
-}) => {
+}: {
+	className: React.FC<EditOrganizationProps>
+}) {
 	return <div className={cn("", className)}>EditOrganization</div>
 }

@@ -4,6 +4,10 @@ interface AdminProps {
 	className?: string
 }
 
-export const Admin: React.FC<AdminProps> = ({ className }) => {
+export default function Admin({
+	className,
+}: {
+	className: React.FC<AdminProps>
+}) {
 	return null
 }

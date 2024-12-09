@@ -5,6 +5,10 @@ interface EditWorksProps {
 	className?: string
 }
 
-export const EditWorks: React.FC<EditWorksProps> = ({ className }) => {
+export default function EditWorks({
+	className,
+}: {
+	className: React.FC<EditWorksProps>
+}) {
 	return <div className={cn("", className)}>Works</div>
 }
