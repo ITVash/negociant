@@ -6,7 +6,7 @@ export interface UserState {
 	loading: boolean
 	error: boolean
 	items: negoUser[]
-	getMe?: negoUser | undefined
+	getMe?: negoUser
 
 	fetchUser: (id_tg: number) => Promise<void>
 	fetchUsersAll: () => Promise<void>
@@ -17,7 +17,7 @@ export const useUser = create<UserState>((set, get) => ({
 	loading: true,
 	error: false,
 	items: [],
-	getMe: undefined,
+	getMe: {} as negoUser,
 	/**
 	 * Fetches a user by its ID
 	 * @param {number} id - user ID
