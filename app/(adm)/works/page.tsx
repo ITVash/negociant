@@ -1,14 +1,6 @@
 import { cn } from "@/shared/lib/utils"
 import React from "react"
 
-interface EditWorksProps {
-	className?: string
-}
-
-export default function EditWorks({
-	className,
-}: {
-	className: React.FC<EditWorksProps>
-}) {
+export default function EditWorks({ className }: { className: string }) {
 	return <div className={cn("", className)}>Works</div>
 }

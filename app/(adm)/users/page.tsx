@@ -5,10 +5,6 @@ interface EditUsersProps {
 	className?: string
 }
 
-export default function EditUsers({
-	className,
-}: {
-	className: React.FC<EditUsersProps>
-}) {
+export default function EditUsers({ className }: { className: string }) {
 	return <div className={cn("", className)}>EditUsers</div>
 }

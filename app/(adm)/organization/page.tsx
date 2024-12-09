@@ -1,14 +1,6 @@
 import { cn } from "@/shared/lib/utils"
 import React from "react"
 
-interface EditOrganizationProps {
-	className?: string
-}
-
-export default function EditOrganization({
-	className,
-}: {
-	className: React.FC<EditOrganizationProps>
-}) {
+export default function EditOrganization({ className }: { className: string }) {
 	return <div className={cn("", className)}>EditOrganization</div>
 }
