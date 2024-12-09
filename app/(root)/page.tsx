@@ -29,7 +29,7 @@ export default function Home() {
 				CreateUser(user)
 			}
 			fetchUser(user.id)
-			console.log(getMe)
+			//console.log(getMe)
 		}
 	}, [user])
 
