@@ -6,6 +6,7 @@ export interface UserState {
 	loading: boolean
 	error: boolean
 	items: negoUser[]
+	getMe?: negoUser
 
 	fetchUser: (id_tg: number) => Promise<void>
 	fetchUsersAll: () => Promise<void>
@@ -20,7 +21,7 @@ export const useUser = create<UserState>((set, get) => ({
 		try {
 			set({ loading: true, error: false })
 			const data = await Api.user.getMe(id)
-			set({ items: [data] })
+			set({ getMe: data })
 		} catch (error) {
 			console.error(error)
 			set({ error: true })

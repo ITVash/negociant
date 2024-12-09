@@ -26,7 +26,7 @@ export const Header: React.FC<HeaderProps> = ({ className, user }) => {
 							<Button variant={"link"}>Открыть</Button>
 						</DrawerMenu>
 					) : (
-						<>Добро пожаловать:</>
+						<></>
 					)}
 				</>
 				<div className='mt-2'>
