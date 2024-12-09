@@ -11,6 +11,7 @@ import {
 } from "@/shared/components/ui/sheet"
 import { Button } from "@/shared/components/ui/button"
 import { ArrowLeft } from "lucide-react"
+import Link from "next/link"
 
 export const DrawerMenu: React.FC<Readonly<React.PropsWithChildren>> = ({
 	children,
@@ -25,10 +26,16 @@ export const DrawerMenu: React.FC<Readonly<React.PropsWithChildren>> = ({
 						<SheetTitle>Редактирование списков</SheetTitle>
 					</SheetHeader>
 					<div className='flex flex-col w-[100%]'>
-						<Button className='mb-3'>Создать Маршрут</Button>
-						<Button className='mb-3'>Редактирование Пользователей</Button>
-						<Button className='mb-3'>Редактирование Организаций</Button>
-						<Button>История Маршрутов</Button>
+						<Link className='mb-3' href={"/works"}>
+							Создать Маршрут
+						</Link>
+						<Link className='mb-3' href={"/users"}>
+							Редактирование Пользователей
+						</Link>
+						<Link className='mb-3' href={"/organization"}>
+							Редактирование Организаций
+						</Link>
+						<Link href={""}>История Маршрутов</Link>
 					</div>
 					<SheetClose>
 						<Button className='w-56 h-12 text-base' size='lg'>
