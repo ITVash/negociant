@@ -29,7 +29,6 @@ export default function Home() {
 				CreateUser(user)
 			}
 			fetchUser(user.id)
-			console.log(getMe)
 		}
 	}, [user])
 
@@ -78,6 +77,7 @@ export default function Home() {
 			(dataUser && dataUser.role === "USER") ? (
 				<>
 					<Header user={dataUser!} />
+					{JSON.stringify(getMe)}
 					<WorkList items={temple} />
 				</>
 			) : (
