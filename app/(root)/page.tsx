@@ -67,17 +67,15 @@ export default function Home() {
 		{ idw: 18, organization: "Филипенко" },
 		{ idw: 19, organization: "Сидония" },
 	]
-	if (!webApp || !items || !dataUser.role) {
+	if (!webApp || !items || !getMe!.role) {
 		return <Loading />
 	}
 	return (
 		<Container
 			className={`text-[#ffffff] text-[${webApp?.themeParams.text_color}] flex-col max-h-screen`}>
-			{(dataUser && dataUser.role === "ADMIN") ||
-			(dataUser && dataUser.role === "USER") ? (
+			{(getMe && getMe.role === "ADMIN") || (getMe && getMe.role === "USER") ? (
 				<>
-					<Header user={dataUser!} />
-					{JSON.stringify(getMe)}
+					<Header user={getMe!} />
 					<WorkList items={temple} />
 				</>
 			) : (
