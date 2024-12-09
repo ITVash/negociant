@@ -26,16 +26,26 @@ export const DrawerMenu: React.FC<Readonly<React.PropsWithChildren>> = ({
 						<SheetTitle>Редактирование списков</SheetTitle>
 					</SheetHeader>
 					<div className='flex flex-col w-[100%]'>
-						<Link className='mb-3' href={"/works"}>
+						<Link
+							className='mb-3 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0'
+							href={"/works"}>
 							Создать Маршрут
 						</Link>
-						<Link className='mb-3' href={"/users"}>
+						<Link
+							className='mb-3 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0'
+							href={"/users"}>
 							Редактирование Пользователей
 						</Link>
-						<Link className='mb-3' href={"/organization"}>
+						<Link
+							className='mb-3 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0'
+							href={"/organization"}>
 							Редактирование Организаций
 						</Link>
-						<Link href={""}>История Маршрутов</Link>
+						<Link
+							className='inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0'
+							href={""}>
+							История Маршрутов
+						</Link>
 					</div>
 					<SheetClose>
 						<Button className='w-56 h-12 text-base' size='lg'>
