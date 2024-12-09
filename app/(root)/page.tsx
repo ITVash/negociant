@@ -17,7 +17,7 @@ interface ITodo {
 }
 export default function Home() {
 	const { user, webApp } = useTelegram()
-	const { items, fetchUsersAll, getMe } = useUser()
+	const { items, fetchUsersAll, getMe, fetchUser } = useUser()
 	React.useEffect(() => {
 		fetchUsersAll()
 	}, [])
@@ -29,7 +29,7 @@ export default function Home() {
 				CreateUser(user)
 			}
 			fetchUser(user.id)
-			//console.log(getMe)
+			console.log(getMe)
 		}
 	}, [user])
 
@@ -85,7 +85,4 @@ export default function Home() {
 			)}
 		</Container>
 	)
-}
-function fetchUser(id: number) {
-	throw new Error("Function not implemented.")
 }
