@@ -29,6 +29,7 @@ export default function Home() {
 				CreateUser(user)
 			}
 			fetchUser(user.id)
+			//fetchUser(454135208)
 		}
 	}, [user])
 
