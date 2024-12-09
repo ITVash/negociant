@@ -1,3 +1,4 @@
+import { cn } from "@/shared/lib/utils"
 import React from "react"
 
 interface AdminProps {
@@ -9,5 +10,5 @@ export default function Admin({
 }: {
 	className: React.FC<AdminProps>
 }) {
-	return null
+	return <div className={cn("", className)}>Admin</div>
 }
