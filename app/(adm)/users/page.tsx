@@ -37,22 +37,35 @@ export default function EditUsers() {
 				Список пользователей!
 			</h3>
 			<ul>
-				<li className='flex gap-2 mb-2 border-b-2 border-solid border-blue-800'>
-					<div className='w-[170px] text-center'>Имя</div>
-					<div className='w-[130px] text-center'>Фамилия</div>
+				<li className='flex gap-2 border-b-2 border-solid border-blue-800'>
+					<div className='w-[130px] text-center border-r-2 border-solid border-blue-800'>
+						Имя
+					</div>
+					<div className='w-[120px] text-center border-r-2 border-solid border-blue-800'>
+						Фамилия
+					</div>
 					<div className='flex-1 text-center'>Роль</div>
 				</li>
 				{items.map((item, id) => (
 					<li
 						key={id}
-						className='flex gap-2 my-1 border-b-2 border-solid border-blue-800'>
-						<div className='w-[170px] text-left border-r-2 border-solid border-blue-800'>
+						className='flex gap-2 pt-1 my-[-0.25rem] border-b-2 border-solid border-blue-800'>
+						<div className='w-[130px] text-left border-r-2 border-solid border-blue-800'>
 							{item.first_name}
 						</div>
-						<div className='w-[130px] text-left border-r-2 border-solid border-blue-800'>
+						<div className='w-[120px] text-left border-r-2 border-solid border-blue-800'>
 							{item.last_name}
 						</div>
-						<div className='flex-1  text-left'>{item.role}</div>
+						<div className='flex-1  text-left'>
+							<select
+								name='changeRole'
+								id='changeRole'
+								defaultValue={item.role}>
+								<option value='ADMIN'>ADMIN</option>
+								<option value='USER'>USER</option>
+								<option value='GUEST'>GUEST</option>
+							</select>
+						</div>
 					</li>
 				))}
 			</ul>
