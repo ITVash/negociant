@@ -38,18 +38,18 @@ export default function EditUsers() {
 			</h3>
 			<ul>
 				<li className='flex gap-2 mb-2 border-b-2 border-solid border-blue-800'>
-					<div className='w-[150px] text-center'>Имя</div>
-					<div className='w-[150px] text-center'>Фамилия</div>
+					<div className='w-[170px] text-center'>Имя</div>
+					<div className='w-[130px] text-center'>Фамилия</div>
 					<div className='flex-1 text-center'>Роль</div>
 				</li>
 				{items.map((item, id) => (
 					<li
 						key={id}
 						className='flex gap-2 py-1 border-b-2 border-solid border-blue-800'>
-						<div className='w-[150px] text-left border-r-2 border-solid border-blue-800'>
+						<div className='w-[170px] text-left border-r-2 border-solid border-blue-800'>
 							{item.first_name}
 						</div>
-						<div className='w-[150px] text-left border-r-2 border-solid border-blue-800'>
+						<div className='w-[130px] text-left border-r-2 border-solid border-blue-800'>
 							{item.last_name}
 						</div>
 						<div className='flex-1  text-left'>{item.role}</div>
