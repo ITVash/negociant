@@ -1,5 +1,5 @@
 import { prisma } from "@/prisma/prisma-client"
-import { negoUser } from "@prisma/client"
+import { negoUser, negoUserRole } from "@prisma/client"
 import { NextRequest, NextResponse } from "next/server"
 
 /**
@@ -43,17 +43,28 @@ export async function GET(
  * - 404 if the user is not found.
  * - 500 if there is a server error.
  */
-export async function PATCH(req: NextRequest) {
+export async function PATCH(
+	req: NextRequest,
+	{ params }: { params: { id_tg: String } },
+) {
 	try {
-		const id = req.nextUrl.searchParams.get("id")
-		const data = (await req.json()) as negoUser
+		const id = Number(params.id_tg)
+		const data = (await req.json()) as { role: negoUserRole }
+		console.error("ID", data)
 		if (!id)
 			return NextResponse.json({ message: "Не коректный ID" }, { status: 400 })
-		const user = await prisma.negoUser.findFirst({ where: { id: Number(id) } })
+		const user = await prisma.negoUser.findFirst({ where: { id: id } })
+		console.error("Пользователь", user)
 		if (!user)
 			return NextResponse.json({ message: "Пользователь не был найден" })
-		await prisma.negoUser.update({ where: { id: Number(id) }, data })
-		return NextResponse.json(user)
+		const userUpdate = await prisma.negoUser.update({
+			where: { id: id },
+			data: {
+				role: data.role,
+			},
+		})
+		console.error("Пользователь", userUpdate)
+		return NextResponse.json(userUpdate)
 	} catch (error) {
 		return NextResponse.json(
 			{ message: "Ошибка сервера", error },

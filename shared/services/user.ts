@@ -1,4 +1,4 @@
-import { negoUser } from "@prisma/client"
+import { negoUser, negoUserRole } from "@prisma/client"
 import { negoUserDTO } from "./dto/user.dto"
 import { axiosInstance } from "./instance"
 
@@ -13,9 +13,9 @@ export const addUser = async (values: negoUserDTO): Promise<negoUserDTO> => {
 }
 export const editUser = async (
 	id: number,
-	values: negoUser,
+	role: negoUserRole,
 ): Promise<negoUser> => {
-	return (await axiosInstance.patch<negoUser>("/users/" + id, values)).data
+	return (await axiosInstance.patch<negoUser>("/users/" + id, { role })).data
 }
 
 export const delitUser = async (id: number): Promise<negoUser> => {

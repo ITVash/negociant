@@ -3,19 +3,30 @@ import { Container, Loading } from "@/shared/components/shared"
 import { useTelegram } from "@/shared/lib/providers"
 import { cn } from "@/shared/lib/utils"
 import { useUser } from "@/shared/store"
+import { negoUserRole } from "@prisma/client"
 import { useRouter } from "next/navigation"
 import React from "react"
 
 export default function EditUsers() {
 	const { webApp } = useTelegram()
 	const router = useRouter()
-	const { items } = useUser()
-	let selectColor = React.useRef("#FFF")
-
+	const { items, fetchEditUser, fetchUsersAll } = useUser()
+	const onChangeHandle = async (
+		id: number,
+		value: React.ChangeEvent<HTMLSelectElement>,
+	) => {
+		const role = value.target.value
+		if (role === "USER") await fetchEditUser(id, negoUserRole.USER)
+		if (role === "ADMIN") await fetchEditUser(id, negoUserRole.ADMIN)
+		if (role === "GUEST") await fetchEditUser(id, negoUserRole.GUEST)
+		console.log(id, items)
+		//fetchUsersAll()
+	}
+	React.useEffect(() => {
+		fetchUsersAll()
+	}, [])
 	React.useEffect(() => {
 		if (webApp) {
-			console.log(webApp)
-			selectColor.current = webApp.themeParams.bg_color
 			webApp.BackButton.isVisible = true
 
 			webApp.onEvent("backButtonClicked", router.back)
@@ -61,15 +72,20 @@ export default function EditUsers() {
 						</div>
 						<div className='flex-1  text-left'>
 							<select
-								name='changeRole'
-								id='changeRole'
-								className={`bg-[transparent] hover:bg-transparent active:bg-blue-500 text-[${
+								onChange={(e) => onChangeHandle(item.id, e)}
+								className={`bg-[transparent] hover:bg-transparent active:bg-blue-500 focus:bg-blue-500 text-[${
 									webApp!.themeParams.text_color
 								}]`}
 								defaultValue={item.role}>
-								<option value='ADMIN'>ADMIN</option>
-								<option value='USER'>USER</option>
-								<option value='GUEST'>GUEST</option>
+								<option key={item.id + "ADMIN"} value='ADMIN'>
+									ADMIN
+								</option>
+								<option key={item.id + "USER"} value='USER'>
+									USER
+								</option>
+								<option key={item.id + "GUEST"} value='GUEST'>
+									GUEST
+								</option>
 							</select>
 						</div>
 					</li>

@@ -1,4 +1,4 @@
-import { negoUser } from "@prisma/client"
+import { negoUser, negoUserRole } from "@prisma/client"
 import { create } from "zustand"
 import { Api } from "../services/api-client"
 
@@ -10,7 +10,7 @@ export interface UserState {
 
 	fetchUser: (id_tg: number) => Promise<void>
 	fetchUsersAll: () => Promise<void>
-	fetchEditUser: (id: number, values: negoUser) => Promise<void>
+	fetchEditUser: (id: number, values: negoUserRole) => Promise<void>
 	fetchDelitUser: (id: number) => Promise<void>
 }
 export const useUser = create<UserState>((set, get) => ({
@@ -50,11 +50,16 @@ export const useUser = create<UserState>((set, get) => ({
 			set({ loading: false })
 		}
 	},
-	fetchEditUser: async (id: number, values: negoUser) => {
+	fetchEditUser: async (id: number, values: negoUserRole) => {
 		try {
 			set({ loading: true, error: false })
 			const data = await Api.user.editUser(id, values)
-			set({ items: [data] })
+			set((state) => ({
+				loading: true,
+				error: false,
+				items: [...state.items.filter((itm) => itm.id !== id), data],
+			}))
+			get()
 		} catch (error) {
 			console.error(error)
 			set({ error: true })
@@ -67,6 +72,7 @@ export const useUser = create<UserState>((set, get) => ({
 			set({ loading: true, error: false })
 			const data = await Api.user.delitUser(id)
 			set({ items: [data] })
+			get()
 		} catch (error) {
 			console.error(error)
 			set({ error: true })
