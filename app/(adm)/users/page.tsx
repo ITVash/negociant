@@ -10,9 +10,11 @@ export default function EditUsers() {
 	const { webApp } = useTelegram()
 	const router = useRouter()
 	const { items } = useUser()
+	let selectColor = "#FFF"
 
 	React.useEffect(() => {
 		if (webApp) {
+			selectColor = webApp.backgroundColor
 			webApp.BackButton.isVisible = true
 
 			webApp.onEvent("backButtonClicked", router.back)
@@ -60,7 +62,7 @@ export default function EditUsers() {
 							<select
 								name='changeRole'
 								id='changeRole'
-								className={`bg-[${webApp!.themeParams.bg_color}] text-[${
+								className={`bg-[${selectColor}] text-[${
 									webApp!.themeParams.text_color
 								}]`}
 								defaultValue={item.role}>
