@@ -30,11 +30,14 @@ export default function EditUsers() {
 	return (
 		<Container
 			className={cn(
-				`text-[${webApp?.themeParams.text_color}], mt-4 flex flex-col`,
+				`text-[${webApp?.themeParams.text_color}] mt-4 flex flex-col`,
 			)}>
-			<h3>Список пользователей!</h3>
+			<h3
+				className={`text-3xl font-bold mb-2 text-[${webApp?.themeParams.text_color}]`}>
+				Список пользователей!
+			</h3>
 			<ul>
-				<li>
+				<li className='flex gap-2'>
 					<div className='w-[100px]'>Имя</div>
 					<div className='w-[150px]'>Фамилия</div>
 					<div className='w-[80px]'>Роль</div>
