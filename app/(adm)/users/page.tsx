@@ -37,16 +37,18 @@ export default function EditUsers() {
 				Список пользователей!
 			</h3>
 			<ul>
-				<li className='flex gap-2'>
-					<div className='w-[100px]'>Имя</div>
+				<li className='flex gap-2 mb-2 border-b-2 border-solid border-blue-800'>
+					<div className='w-[150px]'>Имя</div>
 					<div className='w-[150px]'>Фамилия</div>
-					<div className='w-[80px]'>Роль</div>
+					<div className='flex-1'>Роль</div>
 				</li>
 				{items.map((item, id) => (
-					<li key={id} className='flex gap-2'>
-						<div className='w-[100px]'>{item.first_name}</div>
+					<li
+						key={id}
+						className='flex gap-2 py-1 border-b-2 border-solid border-blue-800'>
+						<div className='w-[150px]'>{item.first_name}</div>
 						<div className='w-[150px]'>{item.last_name}</div>
-						<div className='w-[80px]'>{item.role}</div>
+						<div className='flex-1'>{item.role}</div>
 					</li>
 				))}
 			</ul>
