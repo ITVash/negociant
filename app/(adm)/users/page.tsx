@@ -60,6 +60,7 @@ export default function EditUsers() {
 							<select
 								name='changeRole'
 								id='changeRole'
+								className={`bg-[${webApp?.themeParams.bg_color}] text-[${webApp?.themeParams.text_color}]`}
 								defaultValue={item.role}>
 								<option value='ADMIN'>ADMIN</option>
 								<option value='USER'>USER</option>
