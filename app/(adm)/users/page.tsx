@@ -45,7 +45,7 @@ export default function EditUsers() {
 				{items.map((item, id) => (
 					<li
 						key={id}
-						className='flex gap-2 py-1 border-b-2 border-solid border-blue-800'>
+						className='flex gap-2 my-1 border-b-2 border-solid border-blue-800'>
 						<div className='w-[170px] text-left border-r-2 border-solid border-blue-800'>
 							{item.first_name}
 						</div>

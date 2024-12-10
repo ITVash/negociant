@@ -29,18 +29,9 @@ export default function Home() {
 				CreateUser(user)
 			}
 			fetchUser(user.id)
-			//fetchUser(454135208)
 		}
+		fetchUser(454135208)
 	}, [user])
-
-	const dataUser =
-		user && items.length > 0
-			? items.filter((item) => item.id_tg === user?.id)[0]
-			: (user as negoUser)
-	/* const dataUser =
-		items &&
-		items.length > 0 &&
-		items.filter((item) => item.id_tg === 454135208)[0] */
 
 	React.useEffect(() => {
 		if (webApp && user) {
