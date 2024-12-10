@@ -24,11 +24,14 @@ export default function EditUsers() {
 			}
 		}
 	}, [])
-	if (!webApp || !items) {
+	if (!webApp && !items) {
 		return <Loading />
 	}
 	return (
-		<Container className={cn(`text-[${webApp?.themeParams.text_color}], mt-4`)}>
+		<Container
+			className={cn(
+				`text-[${webApp?.themeParams.text_color}], mt-4 flex flex-col`,
+			)}>
 			<h3>Список пользователей!</h3>
 			<ul>
 				<li>
