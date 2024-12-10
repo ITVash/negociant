@@ -15,7 +15,7 @@ export default function EditUsers() {
 	React.useEffect(() => {
 		if (webApp) {
 			console.log(webApp)
-			selectColor = webApp.backgroundColor
+			selectColor = webApp.themeParams.bg_color
 			webApp.BackButton.isVisible = true
 
 			webApp.onEvent("backButtonClicked", router.back)
