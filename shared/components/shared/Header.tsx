@@ -25,7 +25,7 @@ export const Header: React.FC<HeaderProps> = ({ className, user }) => {
 					{user && user.role === "ADMIN" ? (
 						<DrawerMenu>
 							<Button variant={"link"}>
-								<Menu size={60} />
+								<Menu size={80} />
 							</Button>
 						</DrawerMenu>
 					) : (
