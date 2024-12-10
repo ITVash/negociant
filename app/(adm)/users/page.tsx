@@ -63,7 +63,7 @@ export default function EditUsers() {
 							<select
 								name='changeRole'
 								id='changeRole'
-								className={`bg-[${selectColor.current}] text-[${
+								className={`bg-[transparent] text-[${
 									webApp!.themeParams.text_color
 								}]`}
 								defaultValue={item.role}>
