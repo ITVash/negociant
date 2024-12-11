@@ -57,7 +57,12 @@ export const useUser = create<UserState>((set, get) => ({
 			set((state) => ({
 				loading: true,
 				error: false,
-				items: [...state.items],
+				items: state.items.map((itm) => {
+					if (itm.id === id) {
+						values
+					}
+					return itm
+				}),
 			}))
 			get()
 		} catch (error) {

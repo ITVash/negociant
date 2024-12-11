@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Nunito } from "next/font/google"
 import "./globals.css"
 import { TelegramProvider } from "@/shared/lib/providers"
+import { Toaster } from "@/shared/components/ui/toaster"
 
 const nunito = Nunito({
 	subsets: ["cyrillic"],
@@ -26,6 +27,7 @@ export default function RootLayout({
 		<html lang='ru' className='light'>
 			<body suppressHydrationWarning={true} className={nunito.className}>
 				<TelegramProvider>{children}</TelegramProvider>
+				<Toaster />
 			</body>
 		</html>
 	)
