@@ -57,7 +57,7 @@ export const useUser = create<UserState>((set, get) => ({
 			set((state) => ({
 				loading: true,
 				error: false,
-				items: [...state.items.filter((itm) => itm.id !== id), data],
+				items: [...state.items],
 			}))
 			get()
 		} catch (error) {
