@@ -50,11 +50,9 @@ export async function PATCH(
 	try {
 		const id = Number(params.id_tg)
 		const data = (await req.json()) as { role: negoUserRole }
-		console.error("ID", data)
 		if (!id)
 			return NextResponse.json({ message: "Не коректный ID" }, { status: 400 })
 		const user = await prisma.negoUser.findFirst({ where: { id: id } })
-		console.error("Пользователь", user)
 		if (!user)
 			return NextResponse.json({ message: "Пользователь не был найден" })
 		const userUpdate = await prisma.negoUser.update({
@@ -63,7 +61,6 @@ export async function PATCH(
 				role: data.role,
 			},
 		})
-		console.error("Пользователь", userUpdate)
 		return NextResponse.json(userUpdate)
 	} catch (error) {
 		return NextResponse.json(
