@@ -38,6 +38,13 @@ export const useUser = create<UserState>((set, get) => ({
 			set({ loading: false })
 		}
 	},
+
+	/**
+	 * Fetches all users.
+	 * @returns {Promise<void>} - resolves when all users are fetched
+	 * - 404 if users are not found.
+	 * - 500 if there is a server error.
+	 */
 	fetchUsersAll: async () => {
 		try {
 			set({ loading: true, error: false })
@@ -50,6 +57,15 @@ export const useUser = create<UserState>((set, get) => ({
 			set({ loading: false })
 		}
 	},
+	/**
+	 * Updates a user by its ID.
+	 * @param {number} id - user ID
+	 * @param {negoUserRole} values - user role to be updated
+	 * @returns {Promise<void>} - resolves when the user is updated
+	 * - 400 if the ID is not provided or the user role is not valid
+	 * - 404 if the user is not found
+	 * - 500 if there is a server error
+	 */
 	fetchEditUser: async (id: number, values: negoUserRole) => {
 		try {
 			set({ loading: true, error: false })
@@ -59,7 +75,7 @@ export const useUser = create<UserState>((set, get) => ({
 				error: false,
 				items: state.items.map((itm) => {
 					if (itm.id === id) {
-						values
+						itm.role = data.role
 					}
 					return itm
 				}),
@@ -72,11 +88,23 @@ export const useUser = create<UserState>((set, get) => ({
 			set({ loading: false })
 		}
 	},
+	/**
+	 * Deletes a user by its ID.
+	 * @param {number} id - user ID
+	 * @returns {Promise<void>} - resolves when the user is deleted
+	 * - 400 if the ID is not provided
+	 * - 404 if the user is not found
+	 * - 500 if there is a server error
+	 */
 	fetchDelitUser: async (id: number) => {
 		try {
 			set({ loading: true, error: false })
 			const data = await Api.user.delitUser(id)
-			set({ items: [data] })
+			set((state) => ({
+				loading: true,
+				error: false,
+				items: state.items.filter((itm) => itm.id !== id),
+			}))
 			get()
 		} catch (error) {
 			console.error(error)

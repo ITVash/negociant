@@ -35,6 +35,9 @@ export default function EditUsers() {
 	React.useEffect(() => {
 		fetchUsersAll()
 	}, [])
+	/* React.useEffect(() => {
+		console.log(items)
+	}, [items]) */
 	React.useEffect(() => {
 		if (webApp) {
 			webApp.BackButton.isVisible = true
