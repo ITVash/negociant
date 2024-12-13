@@ -10,7 +10,13 @@ import React from "react"
 export default function EditOrganization() {
 	const { webApp } = useTelegram()
 	const router = useRouter()
-
+	const [searchInput, setSearchInput] = React.useState<string>("")
+	const searchHadler = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setSearchInput(e.target.value)
+	}
+	const delitSearchInput = () => {
+		setSearchInput("")
+	}
 	React.useEffect(() => {
 		if (webApp) {
 			webApp.BackButton.isVisible = true
@@ -39,10 +45,19 @@ export default function EditOrganization() {
 					type='text'
 					className='w-full pl-6 pr-6'
 					placeholder='Название организации...'
+					value={searchInput}
+					onChange={searchHadler}
 				/>
-				<X className={cn("absolute right-[5px] cursor-pointer")} size={16} />
+				<X
+					className={cn(
+						"absolute right-[5px] cursor-pointer invisible",
+						searchInput.length > 0 && "visible",
+					)}
+					size={16}
+					onClick={delitSearchInput}
+				/>
 			</div>
-			EditOrganization
+			<h3 className='text-lg text-center'>Список организаций.</h3>
 		</Container>
 	)
 }
