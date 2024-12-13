@@ -99,7 +99,7 @@ export const useUser = create<UserState>((set, get) => ({
 	fetchDelitUser: async (id: number) => {
 		try {
 			set({ loading: true, error: false })
-			const data = await Api.user.delitUser(id)
+			await Api.user.delitUser(id)
 			set((state) => ({
 				loading: true,
 				error: false,
