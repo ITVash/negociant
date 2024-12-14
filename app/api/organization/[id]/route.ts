@@ -53,13 +53,22 @@ export async function PATCH(
 ) {
 	try {
 		const id = Number(params.id)
-		const data = (await req.json()) as negoOrganization
+		const data = await req.json()
 
 		const organization = await prisma.negoOrganization.update({
 			where: {
 				id,
 			},
-			data,
+			data: {
+				...data,
+				contakts: {
+					create: data.contakts,
+				},
+			},
+			include: {
+				contakts: true,
+			},
+			
 		})
 
 		if (!organization) {

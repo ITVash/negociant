@@ -10,6 +10,7 @@ export async function GET() {
 		include: {
 			contakts: true,
 		},
+		orderBy: { createdAt: "desc" },
 	})
 
 	return NextResponse.json(organizations)
@@ -17,15 +18,26 @@ export async function GET() {
 
 /**
  * Creates a new organization
- * @param {Request} req
- * @returns {Promise<NextResponse>} Response with created organization
+ * @param {NextRequest} req - The request object containing the organization data
+ * @returns {Promise<NextResponse>} Response with the created organization if found, otherwise an error message
+ * - 404 if the organization is not created
+ * - 500 if there is a server error
  */
 export async function POST(req: NextRequest) {
 	try {
 		const body = await req.json()
 
 		const organization = await prisma.negoOrganization.create({
-			data: body,
+			data: {
+				address: body.address,
+				name: body.name,
+				contakts: {
+					create: body.contakts,
+				},
+			},
+			include: {
+				contakts: true,
+			},
 		})
 		return NextResponse.json(organization, { status: 200 })
 	} catch (error) {
