@@ -4,7 +4,8 @@ import { Input } from "@/shared/components/ui/input"
 import { useTelegram } from "@/shared/lib/providers"
 import { cn } from "@/shared/lib/utils"
 import { useOrganization } from "@/shared/store"
-import { Search, X } from "lucide-react"
+import { Pencil, Search, X } from "lucide-react"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import React from "react"
 
@@ -71,9 +72,12 @@ export default function EditOrganization() {
 						<div className='flex-1'>
 							{item.name}-{item.id}
 						</div>
-						<button className='flex justify-center items-center border-[1px] border-blue-500 rounded-[4px] w-[22px] h-[22px] pb-2'>
-							...
-						</button>
+						<Link href={"/organization/" + item.id}>
+							<Pencil size={16} />
+						</Link>
+
+						{/* <button className='flex justify-center items-center border-[1px] border-blue-500 rounded-[4px] w-[22px] h-[22px] pb-2'>
+						</button> */}
 					</li>
 				))}
 			</ul>

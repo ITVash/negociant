@@ -24,7 +24,7 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang='ru' className='light'>
+		<html lang='ru' suppressHydrationWarning={true}>
 			<body suppressHydrationWarning={true} className={nunito.className}>
 				<TelegramProvider>{children}</TelegramProvider>
 				<Toaster />

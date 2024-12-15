@@ -1,31 +1,30 @@
 import { negoOrganization } from "@prisma/client"
 import { axiosInstance } from "./instance"
+import { OrganizationDTO } from "./dto/organization.dto"
 
 export const getAll = async (): Promise<negoOrganization[]> => {
 	return (await axiosInstance.get<negoOrganization[]>("/organization")).data
 }
-export const getOrganization = async (
-	id: number,
-): Promise<negoOrganization> => {
-	return (await axiosInstance.get<negoOrganization>("/organization/" + id)).data
+export const getOrganization = async (id: number): Promise<OrganizationDTO> => {
+	return (await axiosInstance.get<OrganizationDTO>("/organization/" + id)).data
 }
 export const addOrganization = async (
-	value: negoOrganization,
-): Promise<negoOrganization> => {
-	return (await axiosInstance.post<negoOrganization>("/organization", value))
+	value: OrganizationDTO,
+): Promise<OrganizationDTO> => {
+	return (await axiosInstance.post<OrganizationDTO>("/organization", value))
 		.data
 }
 export const EditOrganization = async (
 	id: number,
-	value: negoOrganization,
-): Promise<negoOrganization> => {
+	value: OrganizationDTO,
+): Promise<OrganizationDTO> => {
 	return (
-		await axiosInstance.patch<negoOrganization>(`/organization/${id}`, value)
+		await axiosInstance.patch<OrganizationDTO>(`/organization/${id}`, value)
 	).data
 }
 export const deleteOrganization = async (
 	id: number,
-): Promise<negoOrganization> => {
-	return (await axiosInstance.delete<negoOrganization>("/organization/" + id))
+): Promise<OrganizationDTO> => {
+	return (await axiosInstance.delete<OrganizationDTO>("/organization/" + id))
 		.data
 }

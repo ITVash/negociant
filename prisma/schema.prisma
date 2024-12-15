@@ -81,7 +81,7 @@ model negoContakts {
   phone String
 
   organization negoOrganization? @relation(fields: [organizationId], references: [id])
-  organizationId Int?
+  organizationId Int
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

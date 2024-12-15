@@ -1,24 +1,25 @@
 import { negoOrganization } from "@prisma/client"
 import { create } from "zustand"
 import { Api } from "../services/api-client"
+import { OrganizationDTO } from "../services/dto/organization.dto"
 
 export interface OrganizationState {
 	loading: boolean
 	error: boolean
-	curentOrganization: negoOrganization
-	organization: negoOrganization[]
+	curentOrganization: OrganizationDTO
+	organization: OrganizationDTO[]
 
 	fetchOrganizationAll: () => Promise<void>
 	fetchOrganization: (id: number) => Promise<void>
-	fetchAddOrganization: (value: negoOrganization) => Promise<void>
+	fetchAddOrganization: (value: OrganizationDTO) => Promise<void>
 	fetchEditOrganization: (id: number, value: negoOrganization) => Promise<void>
 	fetchDeleteOrganization: (id: number) => Promise<void>
 }
 
-export const useOrganization = create<OrganizationState>((set) => ({
+export const useOrganization = create<OrganizationState>((set, get) => ({
 	loading: true,
 	error: false,
-	curentOrganization: {} as negoOrganization,
+	curentOrganization: {} as OrganizationDTO,
 	organization: [],
 
 	fetchOrganizationAll: async () => {
