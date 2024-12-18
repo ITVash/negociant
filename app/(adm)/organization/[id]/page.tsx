@@ -7,18 +7,7 @@ import { useOrganization } from "@/shared/store"
 import Link from "next/link"
 import React from "react"
 
-interface EditProps {
-	className?: string
-	params: { id: string }
-}
-
-const EditOrganization = ({
-	className,
-	params: { id },
-}: {
-	className?: string
-	params: { id: string }
-}) => {
+const EditOrganization = ({ params: { id } }: { params: { id: string } }) => {
 	const { webApp } = useTelegram()
 	const { curentOrganization, fetchOrganization } = useOrganization()
 	React.useEffect(() => {
@@ -27,10 +16,7 @@ const EditOrganization = ({
 	if (!webApp && !curentOrganization.contakts) return <Loading />
 	return (
 		<Container
-			className={cn(
-				`text-[${webApp?.themeParams.text_color}] flex-col mt-2`,
-				className,
-			)}>
+			className={cn(`text-[${webApp?.themeParams.text_color}] flex-col mt-2`)}>
 			<h1>Редактирование организации</h1>
 			<Link href='/organization'>Назад</Link>
 			<label htmlFor='name'>Название организации</label>
