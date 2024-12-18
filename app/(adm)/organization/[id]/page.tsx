@@ -1,5 +1,5 @@
 "use client"
-import { Container, Loading } from "@/shared/components/shared"
+import { Container, Loading, LoadingContent } from "@/shared/components/shared"
 import { Input } from "@/shared/components/ui/input"
 import { useTelegram } from "@/shared/lib/providers"
 import { cn } from "@/shared/lib/utils"
@@ -11,7 +11,7 @@ import React from "react"
 const EditOrganization = ({ params: { id } }: { params: { id: string } }) => {
 	const { webApp } = useTelegram()
 	const router = useRouter()
-	const { curentOrganization, fetchOrganization } = useOrganization()
+	const { curentOrganization, fetchOrganization, loading } = useOrganization()
 	React.useEffect(() => {
 		fetchOrganization(Number(id))
 	}, [])
@@ -31,7 +31,7 @@ const EditOrganization = ({ params: { id } }: { params: { id: string } }) => {
 	return (
 		<Container
 			className={cn(`text-[${webApp?.themeParams.text_color}] flex-col mt-2`)}>
-			{curentOrganization ? (
+			{!loading ? (
 				<>
 					<h1>Редактирование организации</h1>
 					<Link href='/organization'>Назад</Link>
@@ -70,7 +70,7 @@ const EditOrganization = ({ params: { id } }: { params: { id: string } }) => {
 						))}
 				</>
 			) : (
-				<Loading />
+				<LoadingContent />
 			)}
 		</Container>
 	)
