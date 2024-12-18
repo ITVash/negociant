@@ -46,7 +46,8 @@ const EditOrganization = ({
 				value={curentOrganization.address}
 			/>
 			<label htmlFor=''>Контакты</label>
-			{curentOrganization.contakts &&
+			{curentOrganization &&
+				curentOrganization.contakts &&
 				curentOrganization.contakts.map((contact, index) => (
 					<div className='flex items-center justify-between mb-2'>
 						<Input
