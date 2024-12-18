@@ -49,21 +49,10 @@ const EditOrganization = ({
 			{curentOrganization &&
 				curentOrganization.contakts &&
 				curentOrganization.contakts.map((contact, index) => (
-					<div className='flex items-center justify-between mb-2'>
-						<Input
-							key={index}
-							className='flex-1'
-							id=''
-							name='name'
-							value={contact.name}
-						/>
+					<div key={index} className='flex items-center justify-between mb-2'>
+						<Input className='flex-1' id='' name='name' value={contact.name} />
 						<span className='px-2'>-</span>
-						<Input
-							key={index + contact.phone}
-							className='w-[130px]'
-							name='phone'
-							value={contact.phone}
-						/>
+						<Input className='w-[130px]' name='phone' value={contact.phone} />
 					</div>
 				))}
 		</Container>
