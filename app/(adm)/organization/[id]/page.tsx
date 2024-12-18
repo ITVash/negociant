@@ -12,11 +12,17 @@ interface EditProps {
 	params: { id: string }
 }
 
-const EditOrganization: React.FC<EditProps> = ({ className, params }) => {
+const EditOrganization = ({
+	className,
+	params: { id },
+}: {
+	className?: string
+	params: { id: string }
+}) => {
 	const { webApp } = useTelegram()
 	const { curentOrganization, fetchOrganization } = useOrganization()
 	React.useEffect(() => {
-		fetchOrganization(Number(params.id))
+		fetchOrganization(Number(id))
 	}, [])
 	if (!webApp && !curentOrganization.contakts) return <Loading />
 	return (
