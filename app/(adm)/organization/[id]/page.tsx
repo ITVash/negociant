@@ -1,11 +1,9 @@
 "use client"
 import { Container, Loading } from "@/shared/components/shared"
 import { Input } from "@/shared/components/ui/input"
-import { OrganizationContakts } from "@/shared/lib/contakts"
 import { useTelegram } from "@/shared/lib/providers"
 import { cn } from "@/shared/lib/utils"
 import { useOrganization } from "@/shared/store"
-import { negoContakts } from "@prisma/client"
 import Link from "next/link"
 import React from "react"
 
@@ -20,7 +18,7 @@ const EditOrganization: React.FC<EditProps> = ({ className, params }) => {
 	React.useEffect(() => {
 		fetchOrganization(Number(params.id))
 	}, [])
-	if (!webApp && !curentOrganization) return <Loading />
+	if (!webApp && !curentOrganization.contakts) return <Loading />
 	return (
 		<Container
 			className={cn(
@@ -44,7 +42,22 @@ const EditOrganization: React.FC<EditProps> = ({ className, params }) => {
 			<label htmlFor=''>Контакты</label>
 			{curentOrganization.contakts &&
 				curentOrganization.contakts.map((contact, index) => (
-					<Input key={index} id='' value={contact.name} />
+					<div className='flex items-center justify-between mb-2'>
+						<Input
+							key={index}
+							className='flex-1'
+							id=''
+							name='name'
+							value={contact.name}
+						/>
+						<span className='px-2'>-</span>
+						<Input
+							key={index + contact.phone}
+							className='w-[130px]'
+							name='phone'
+							value={contact.phone}
+						/>
+					</div>
 				))}
 		</Container>
 	)

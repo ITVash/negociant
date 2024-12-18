@@ -36,7 +36,11 @@ export const useOrganization = create<OrganizationState>((set, get) => ({
 	},
 	fetchOrganization: async (id: number) => {
 		try {
-			set({ loading: true, error: false })
+			set({
+				loading: true,
+				error: false,
+				curentOrganization: {} as OrganizationDTO,
+			})
 			const data = await Api.organization.getOrganization(id)
 			set({ curentOrganization: data })
 		} catch (error) {

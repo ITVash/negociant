@@ -30,7 +30,7 @@ export default function Home() {
 			}
 			fetchUser(user.id)
 		}
-		//fetchUser(454135208)
+		fetchUser(454135208)
 	}, [user])
 
 	React.useEffect(() => {
