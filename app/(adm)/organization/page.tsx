@@ -26,7 +26,6 @@ export default function EditOrganization() {
 	React.useEffect(() => {
 		if (webApp) {
 			webApp.BackButton.isVisible = true
-
 			webApp.onEvent("backButtonClicked", router.back)
 		}
 		return () => {
